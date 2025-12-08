@@ -1,0 +1,493 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+#app {
+  flex-shrink: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.top-bar {
+  flex-shrink: 0;
+  height: 15%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.top-bar-content {
+  flex-shrink: 0;
+  height: 80%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#app-header {
+  font: 700 40px Arial;
+}
+
+#control-panel {
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+}
+
+.control-panel-sub-div {
+  flex-shrink: 0;
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.color-relevance-outer-div {
+  height: 20%;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.color-relevance-div {
+  display: none;
+  gap: 5px;
+}
+
+.color-relevance-div div {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+}
+
+.color-relevance-div p {
+  margin: 0;
+}
+
+#temperature-control-text {
+  margin: 0;
+}
+
+#temperature-slider-div {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+}
+
+#temperature-slider {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  flex-grow: 1;
+  background: transparent;
+}
+
+#temperature-slider::-webkit-slider-runnable-track {
+  height: 10px;
+  width: 100%;
+  background: linear-gradient(to right, rgba(0, 4, 252, 0.5), rgba(229, 255, 0, 0.5), rgba(255, 0, 0, 0.5));
+  border: none;
+  border-radius: 5px;
+}
+
+#temperature-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 8px;
+  width: 8px;
+  margin: 1px 0 0 0;
+  border-radius: 50%;
+  background: black;
+}
+
+#temperature-reset-button {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+}
+
+#temperature-reset-button i {
+  font-size: 15px;
+  color: black;
+}
+
+
+#inner-app {
+  flex-shrink: 0;
+  height: 85%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#periodic-table {
+  height: 100%;
+  width: fit-content;
+  overflow: scroll;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 5px;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: transparent;
+}
+
+#periodic-table::-webkit-scrollbar {
+  display: none;
+}
+
+#main-table {
+  gap: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  background: transparent;
+}
+
+#f-block-table {
+  margin: 0 0 0 auto;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background: transparent;
+}
+
+.group {
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+.period {
+  gap: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: transparent;
+}
+
+.element-button {
+  cursor: pointer;
+  width: 8vh;
+  height: 8vh;
+  overflow: hidden;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: transparent;
+}
+
+.element-info-div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.element-info-div p {
+  margin: 0;
+}
+
+.atomic-number {
+  font: 700 10px Arial;
+}
+
+.mass-number {
+  font: 700 10px Arial;
+  display: none;
+}
+
+.element-name-div {
+  flex-shrink: 0;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.element-symbol {
+  font: 500 20px Arial;
+  margin: 0;
+}
+
+.element-name {
+  font: 500 10px Arial;
+  margin: 0;
+}
+
+
+#info-panel {
+  flex-shrink: 0;
+  flex-grow: 1;
+  height: 100%;
+  min-width: 20%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  margin: auto 0 0 0;
+  padding: 20px 0 200px 10px;
+  gap: 50px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: rgb(245, 250, 255);
+}
+
+#info-panel::-webkit-scrollbar {
+  display: none;
+}
+
+#info-panel-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+#atomic-number {
+  font: 700 35px Arial;
+  margin: 0;
+}
+
+#element-name {
+  font: 700 30px Arial;
+  margin: 0;
+}
+
+#electronic-configuration {
+  font: 500 20px Arial;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+#info-panel-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.info-body-text {
+  font: 500 18px Arial;
+  margin: 0;
+}
+
+.info-body-values {
+  font: 500 18px Arial;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+#learn-more-link {
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: rgb(0, 0, 255, 0.5);
+  background: transparent;
+  border: 1px solid rgb(50, 50, 255, 0.7);
+  font: 700 15px Arial;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+#learn-more-link:hover {
+  color: rgb(255, 255, 255);
+  background: rgba(50, 50, 255, 0.7);
+}
+
+/* Category Styles */
+#periodic-table.by-category .category-Alkali-Metal {
+  border-color: rgba(255, 0, 0, 0.3);
+  background-color: rgba(255, 0, 0, 0.15);
+}
+
+#periodic-table.by-category .category-Alkali-Metal p {
+  color: rgb(255, 0, 0);
+}
+
+#periodic-table.by-category .category-Alkaline-Earth-Metal {
+  border-color: rgba(255, 165, 0, 0.3);
+  background-color: rgba(255, 165, 0, 0.15);
+}
+
+#periodic-table.by-category .category-Alkaline-Earth-Metal p {
+  color: rgb(255, 165, 0);
+}
+
+#periodic-table.by-category .category-Transition-Metal {
+  border-color: rgba(255, 215, 0, 0.3);
+  background-color: rgba(255, 215, 0, 0.15);
+}
+
+#periodic-table.by-category .category-Transition-Metal p {
+  color: rgb(218, 165, 32);
+}
+
+#periodic-table.by-category .category-Post-transition-Metal {
+  border-color: rgba(0, 128, 0, 0.3);
+  background-color: rgba(0, 128, 0, 0.15);
+}
+
+#periodic-table.by-category .category-Post-transition-Metal p {
+  color: rgb(0, 128, 0);
+}
+
+#periodic-table.by-category .category-Metalloid {
+  border-color: rgba(0, 139, 139, 0.3);
+  background-color: rgba(0, 139, 139, 0.15);
+}
+
+#periodic-table.by-category .category-Metalloid p {
+  color: rgb(0, 139, 139);
+}
+
+#periodic-table.by-category .category-Reactive-Nonmetal {
+  border-color: rgba(0, 0, 255, 0.3);
+  background-color: rgba(0, 0, 255, 0.15);
+}
+
+#periodic-table.by-category .category-Reactive-Nonmetal p {
+  color: rgb(0, 0, 255);
+}
+
+#periodic-table.by-category .category-Noble-Gas {
+  border-color: rgba(128, 0, 128, 0.3);
+  background-color: rgba(128, 0, 128, 0.15);
+}
+
+#periodic-table.by-category .category-Noble-Gas p {
+  color: rgb(128, 0, 128);
+}
+
+#periodic-table.by-category .category-Lanthanide {
+  border-color: rgba(255, 105, 180, 0.3);
+  background-color: rgba(255, 105, 180, 0.15);
+}
+
+#periodic-table.by-category .category-Lanthanide p {
+  color: rgb(255, 20, 147);
+}
+
+#periodic-table.by-category .category-Actinide {
+  border-color: rgba(165, 42, 42, 0.3);
+  background-color: rgba(165, 42, 42, 0.15);
+}
+
+#periodic-table.by-category .category-Actinide p {
+  color: rgb(165, 42, 42);
+}
+
+#periodic-table.by-category .category-Halogen {
+  border-color: rgba(0, 255, 255, 0.3);
+  background-color: rgba(0, 255, 255, 0.15);
+}
+
+#periodic-table.by-category .category-Halogen p {
+  color: rgb(0, 139, 139);
+}
+
+/* Block Styles */
+#periodic-table.by-block .block-s {
+  border-color: rgba(0, 0, 255, 0.3);
+  background-color: rgba(0, 0, 255, 0.15);
+}
+
+#periodic-table.by-block .block-s p {
+  color: rgb(0, 0, 255);
+}
+
+#periodic-table.by-block .block-p {
+  border-color: rgba(34, 139, 34, 0.3);
+  background-color: rgba(34, 139, 34, 0.15);
+}
+
+#periodic-table.by-block .block-p p {
+  color: rgb(34, 139, 34);
+}
+
+#periodic-table.by-block .block-d {
+  border-color: rgba(255, 0, 0, 0.3);
+  background-color: rgba(255, 0, 0, 0.15);
+}
+
+#periodic-table.by-block .block-d p {
+  color: rgb(255, 0, 0);
+}
+
+#periodic-table.by-block .block-f {
+  border-color: rgba(184, 134, 11, 0.3);
+  background-color: rgba(184, 134, 11, 0.15);
+}
+
+#periodic-table.by-block .block-f p {
+  color: rgb(184, 134, 11);
+}
+
+/* State Styles */
+#periodic-table.by-state .state-Solid {
+  border-color: rgba(0, 0, 255, 0.3);
+  background-color: rgba(0, 0, 255, 0.15);
+}
+
+#periodic-table.by-state .state-Solid p {
+  color: rgb(0, 0, 255);
+}
+
+#periodic-table.by-state .state-Liquid {
+  border-color: rgba(34, 139, 34, 0.3);
+  background-color: rgba(34, 139, 34, 0.15);
+}
+
+#periodic-table.by-state .state-Liquid p {
+  color: rgb(34, 139, 34);
+}
+
+#periodic-table.by-state .state-Gas {
+  border-color: rgba(255, 0, 0, 0.3);
+  background-color: rgba(255, 0, 0, 0.15);
+}
+
+#periodic-table.by-state .state-Gas p {
+  color: rgb(255, 0, 0);
+}

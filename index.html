@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
+  <link rel="stylesheet" href="PeriodicTable.css" />
+</head>
+
+<body>
+  <div id="app" class="horizontal">
+    <div class="top-bar">
+      <div class="top-bar-content">
+        <p id="app-header">Periodic Table</p>
+        <div id="control-panel">
+          <div class="control-panel-sub-div" style="display: flex; align-items: center; margin-right: 20px;">
+            <span style="font-weight: bold; margin-right: 10px;">Color By:</span>
+            <select id="view-mode-select" style="padding: 5px; font-size: 16px;">
+              <option value="by-state">State (Phase)</option>
+              <option value="by-block">Block</option>
+              <option value="by-category">Category</option>
+            </select>
+          </div>
+          <div id="block-control-div" class="control-panel-sub-div"></div>
+          <div id="state-control-div" class="control-panel-sub-div">
+            <div id="temperature-control-div">
+              <p id="temperature-control-text">Temperature: <input type="number" id="temperature-control-value"
+                  max="6000" min="0" value="298"> K</p>
+              <div id="temperature-slider-div">
+                <input id="temperature-slider" type="range" min="0" max="6000" value="298">
+                <button id="temperature-reset-button"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="color-relevance-outer-div">
+        <div class="color-relevance-div by-state" style="display: flex;">
+          <div style="border: 2px solid rgba(0, 0, 255, 0.5);background: rgba(0, 0, 255, 0.3);"></div>
+          <p>Solid</p>
+        </div>
+        <div class="color-relevance-div by-state" style="display: flex;">
+          <div style="border: 2px solid rgba(34, 139, 34, 0.5);background: rgba(34, 139, 34, 0.3);"></div>
+          <p>Liquid</p>
+        </div>
+        <div class="color-relevance-div by-state" style="display: flex;">
+          <div style="border: 2px solid rgba(255, 0, 0, 0.5);background: rgba(255, 0, 0, 0.3);"></div>
+          <p>Gas</p>
+        </div>
+        <div class="color-relevance-div by-block">
+          <div style="border: 2px solid rgba(0, 0, 255, 0.5);background: rgba(0, 0, 255, 0.3);"></div>
+          <p>s-block</p>
+        </div>
+        <div class="color-relevance-div by-block">
+          <div style="border: 2px solid rgba(34, 139, 34, 0.5);background: rgba(34, 139, 34, 0.3);"></div>
+          <p>p-block</p>
+        </div>
+        <div class="color-relevance-div by-block">
+          <div style="border: 2px solid rgba(255, 0, 0, 0.5);background: rgba(255, 0, 0, 0.3);"></div>
+          <p>d-block</p>
+        </div>
+        <div class="color-relevance-div by-block">
+          <div style="border: 2px solid rgba(0, 0, 255, 0.5);background: rgba(0, 0, 255, 0.3);"></div>
+          <p>f-block</p>
+        </div>
+        <div class="color-relevance-div by-category">
+          <div style="border: 2px solid rgba(34, 139, 34, 0.5);background: rgba(34, 139, 34, 0.3);"></div>
+          <p>Alkali Metals</p>
+        </div>
+        <div class="color-relevance-div by-category">
+          <div style="border: 2px solid rgba(255, 0, 0, 0.5);background: rgba(255, 0, 0, 0.3);"></div>
+          <p>Alkaline Earth Metals</p>
+        </div>
+        <div class="color-relevance-div by-category">
+          <div style="border: 2px solid rgba(0, 0, 255, 0.5);background: rgba(0, 0, 255, 0.3);"></div>
+          <p>Transition Metals</p>
+        </div>
+        <div class="color-relevance-div by-category">
+          <div style="border: 2px solid rgba(34, 139, 34, 0.5);background: rgba(34, 139, 34, 0.3);"></div>
+          <p>Post-transition Metals</p>
+        </div>
+        <div class="color-relevance-div by-category">
+          <div style="border: 2px solid rgba(255, 0, 0, 0.5);background: rgba(255, 0, 0, 0.3);"></div>
+          <p>Lanthanides</p>
+        </div>
+        <div class="color-relevance-div by-category">
+          <div style="border: 2px solid rgba(0, 0, 255, 0.5);background: rgba(0, 0, 255, 0.3);"></div>
+          <p>Actinides</p>
+        </div>
+      </div>
+    </div>
+    <div id="inner-app">
+      <div id="periodic-table" class="by-state">
+        <div id="main-table">
+          <div class="group 1"></div>
+          <div class="group 2"></div>
+          <div class="group 3"></div>
+          <div class="group 4"></div>
+          <div class="group 5"></div>
+          <div class="group 6"></div>
+          <div class="group 7"></div>
+          <div class="group 8"></div>
+          <div class="group 9"></div>
+          <div class="group 10"></div>
+          <div class="group 11"></div>
+          <div class="group 12"></div>
+          <div class="group 13"></div>
+          <div class="group 14"></div>
+          <div class="group 15"></div>
+          <div class="group 16"></div>
+          <div class="group 17"></div>
+          <div class="group 18"></div>
+        </div>
+        <div id="f-block-table">
+          <div class="period 6"></div>
+          <div class="period 7"></div>
+        </div>
+      </div>
+      <div id="info-panel">
+        <div id="info-panel-header">
+          <p id="atomic-number"></p>
+          <p id="element-name"></p>
+          <p id="electronic-configuration"></p>
+        </div>
+        <div>
+          <img id="element-image">
+        </div>
+        <div id="info-panel-body">
+          <p class="info-body-text">Symbol: <span id="element-symbol-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Atomic Radius: <span id="atomic-radius-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Mass Number: <span id="mass-number-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Density: <span id="density-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Electronegativity: <span id="electronegativity-text"
+              class="info-body-values"></span>
+          </p>
+          <p class="info-body-text">Phase: <span id="phase-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Melting Point: <span id="melting-point-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Boiling Point: <span id="boiling-point-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Period: <span id="period-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Group: <span id="group-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Block: <span id="block-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Category: <span id="category-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Year Discovered: <span id="year-discovered-text" class="info-body-values"></span>
+          </p>
+        </div>
+        <a id="learn-more-link" href="https://en.wikipedia.org/wiki" target="_blank">Learn more</a>
+      </div>
+    </div>
+  </div>
+  <script src="PeriodicTable.js"></script>
+</body>
+
+</html>
