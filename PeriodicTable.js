@@ -2025,6 +2025,7 @@ temperature_slider.addEventListener("input", () => {
 });
 
 function showInfo(atomic_number, element) {
+  infoPanel.scrollIntoView();
   // header elements
   document.getElementById("atomic-number").textContent = atomic_number;
   document.getElementById("element-name").textContent = element.name;
@@ -2081,11 +2082,6 @@ function createElement(atomic_number, element) {
   atomic_no_p.textContent = atomic_number;
   atomic_no_p.className = "atomic-number";
   div1.appendChild(atomic_no_p);
-  // Atomic mass
-  let atomic_mass_p = document.createElement("p");
-  atomic_mass_p.textContent = `${element.mass} u`;
-  atomic_mass_p.className = "mass-number";
-  div1.appendChild(atomic_mass_p);
   elementBtn.appendChild(div1);
 
   let div2 = document.createElement("div");
@@ -2123,8 +2119,6 @@ for (let atomic_number in allElements) {
   parent.appendChild(createElement(atomic_number, el));
 }
 
-showInfo(1, allElements[1]);
-
 let viewModeSelect = document.getElementById("view-mode-select");
 viewModeSelect.addEventListener("change", () => {
   table.classList.remove("by-state");
@@ -2137,4 +2131,22 @@ viewModeSelect.addEventListener("change", () => {
   document.querySelectorAll(`.color-relevance-div.${viewModeSelect.value}`).forEach(div => {
     div.style.display = "flex";
   });
+});
+
+function checkOrientation() {
+    if (document.body.offsetHeight > document.body.offsetWidth) {
+        app.classList.remove("horizontal");
+        app.classList.add("vertical");
+    } else {
+        app.classList.remove("vertical");
+        app.classList.add("horizontal");
+    }
+}
+
+window.addEventListener("resize", () => {
+    checkOrientation();
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+    checkOrientation();
 });
