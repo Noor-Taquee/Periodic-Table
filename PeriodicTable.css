@@ -18,6 +18,7 @@ a {
 }
 
 #app {
+  position: relative;
   flex-shrink: 0;
   height: 100%;
   width: 100%;
@@ -45,11 +46,17 @@ a {
 }
 
 .top-bar {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
   flex-shrink: 0;
   height: fit-content;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 20px;
+  padding: 5px 10px;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -213,19 +220,24 @@ a {
 
 #inner-app {
   flex-shrink: 0;
-  height: 85%;
+  height: 100%;
   width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   background: transparent;
+}
+#app.vertical #inner-app {
+  padding: 30vw 0 0 0;
+}
+#app.horizontal #inner-app {
+  padding: 30vh 0 0 0;
 }
 
 #periodic-table {
@@ -355,7 +367,7 @@ a {
   overflow-y: scroll;
   box-sizing: border-box;
   margin: auto 0 0 0;
-  padding: 20px 0 200px 10px;
+  padding: 20px 10px;
   gap: 50px;
   border-radius: 20px;
   display: flex;
