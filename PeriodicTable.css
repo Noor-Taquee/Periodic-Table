@@ -21,6 +21,7 @@ a {
   flex-shrink: 0;
   height: 100%;
   width: 100%;
+  overflow: hidden;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -42,7 +43,6 @@ a {
 #app.dark i {
   color: white;
 }
-
 
 .top-bar {
   flex-shrink: 0;
@@ -75,6 +75,7 @@ a {
   flex-shrink: 0;
   height: 80%;
   width: 100%;
+  overflow: hidden;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -113,6 +114,8 @@ a {
   width: 100%;
   overflow-y: hidden;
   overflow-x: scroll;
+  box-sizing: border-box;
+  padding: 3px 0;
   gap: 15px;
   display: flex;
   justify-content: flex-start;
@@ -146,8 +149,24 @@ a {
   font: 500 2.5vh Arial;
 }
 
-#temperature-control-text {
-  margin: 0;
+#app.vertical #view-mode-select,
+#app.vertical #temperature-control-value {
+  height: 3.5vw;
+  border: none;
+  background: transparent;
+  font-size: 3vw;
+}
+#app.horizontal #view-mode-select,
+#app.horizontal #temperature-control-value {
+  height: 3.5vh;
+  border: none;
+  background: transparent;
+  font-size: 3vh;
+}
+
+#view-mode-select:focus,
+#temperature-control-value:focus {
+  outline: rgb(0, 120, 255);
 }
 
 #temperature-slider-div {
@@ -167,17 +186,17 @@ a {
 #temperature-slider::-webkit-slider-runnable-track {
   height: 10px;
   width: 100%;
-  background: linear-gradient(to right, rgba(0, 4, 252, 0.5), rgba(229, 255, 0, 0.5), rgba(255, 0, 0, 0.5));
+  background: linear-gradient(to right, rgb(0, 4, 255), rgb(0, 195, 255));
   border: none;
-  border-radius: 5px;
+  border-radius: 2.5px;
 }
 
 #temperature-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  height: 8px;
-  width: 8px;
-  margin: 1px 0 0 0;
-  border-radius: 50%;
+  height: 10px;
+  width: 5px;
+  margin: 0;
+  border-radius: 2.5px;
   background: black;
 }
 
@@ -196,7 +215,8 @@ a {
   flex-shrink: 0;
   height: 85%;
   width: 100%;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   scroll-behavior: smooth;
   box-sizing: border-box;
   padding: 0;
@@ -399,15 +419,24 @@ a {
   gap: 5px;
 }
 
-.info-body-text {
-  font: 500 18px Arial;
+#app.vertical .info-body-text {
+  font: 500 3vw Arial;
+  margin: 0;
+}
+#app.horizontal .info-body-text {
+  font: 500 3vh Arial;
   margin: 0;
 }
 
 .info-body-values {
-  font: 500 18px Arial;
   margin: 0;
   color: rgba(0, 0, 0, 0.7);
+}
+#app.vertical .info-body-values {
+  font: 500 3vw Arial;
+}
+#app.horizontal .info-body-values {
+  font: 500 3vh Arial;
 }
 
 #learn-more-link {

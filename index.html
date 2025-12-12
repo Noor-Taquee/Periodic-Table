@@ -17,18 +17,18 @@
         <p id="app-header">Periodic Table</p>
         <div id="control-panel">
           <div class="control-panel-sub-div" style="display: flex; align-items: center; margin-right: 20px;">
-            <span style="font-weight: bold; margin-right: 10px;">Color By:</span>
+            <span class="info-body-text">Color By:</span>
             <select id="view-mode-select" style="padding: 5px; font-size: 16px;">
               <option value="by-state">State (Phase)</option>
               <option value="by-block">Block</option>
               <option value="by-category">Category</option>
             </select>
           </div>
-          <div id="block-control-div" class="control-panel-sub-div"></div>
           <div id="state-control-div" class="control-panel-sub-div">
             <div id="temperature-control-div">
-              <p id="temperature-control-text">Temperature: <input type="number" id="temperature-control-value"
-                  max="6000" min="0" value="298"> K</p>
+              <p class="info-body-text">Temperature:
+                <input type="number" id="temperature-control-value" max="6000" min="0" value="298"> K
+              </p>
               <div id="temperature-slider-div">
                 <input id="temperature-slider" type="range" min="0" max="6000" value="298">
                 <button id="temperature-reset-button"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
