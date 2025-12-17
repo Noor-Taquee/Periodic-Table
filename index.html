@@ -7,27 +7,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
   <link rel="stylesheet" href="PeriodicTable.css" />
+  <link rel="icon" href="Icons/favicon.ico">
 </head>
 
 <body>
-  <div id="app" class="horizontal">
+  <div id="app" class="vertical light">
     <div class="top-bar">
       <div class="top-bar-content">
         <p id="app-header">Periodic Table</p>
         <div id="control-panel">
           <div class="control-panel-sub-div" style="display: flex; align-items: center; margin-right: 20px;">
-            <span style="font-weight: bold; margin-right: 10px;">Color By:</span>
+            <span class="info-body-text">Color By:</span>
             <select id="view-mode-select" style="padding: 5px; font-size: 16px;">
               <option value="by-state">State (Phase)</option>
               <option value="by-block">Block</option>
               <option value="by-category">Category</option>
             </select>
           </div>
-          <div id="block-control-div" class="control-panel-sub-div"></div>
           <div id="state-control-div" class="control-panel-sub-div">
             <div id="temperature-control-div">
-              <p id="temperature-control-text">Temperature: <input type="number" id="temperature-control-value"
-                  max="6000" min="0" value="298"> K</p>
+              <p class="info-body-text">Temperature:
+                <input type="number" id="temperature-control-value" max="6000" min="0" value="298"> K
+              </p>
               <div id="temperature-slider-div">
                 <input id="temperature-slider" type="range" min="0" max="6000" value="298">
                 <button id="temperature-reset-button"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
@@ -38,55 +39,55 @@
       </div>
       <div class="color-relevance-outer-div">
         <div class="color-relevance-div by-state" style="display: flex;">
-          <div style="border: 2px solid rgba(0, 0, 255, 0.5);background: rgba(0, 0, 255, 0.3);"></div>
+          <div style="border: 2px solid rgba(0, 0, 255, 0.3);background: rgba(0, 0, 255, 0.15);"></div>
           <p>Solid</p>
         </div>
         <div class="color-relevance-div by-state" style="display: flex;">
-          <div style="border: 2px solid rgba(34, 139, 34, 0.5);background: rgba(34, 139, 34, 0.3);"></div>
+          <div style="border: 2px solid rgba(34, 139, 34, 0.3);background: rgba(34, 139, 34, 0.15);"></div>
           <p>Liquid</p>
         </div>
         <div class="color-relevance-div by-state" style="display: flex;">
-          <div style="border: 2px solid rgba(255, 0, 0, 0.5);background: rgba(255, 0, 0, 0.3);"></div>
+          <div style="border: 2px solid rgba(255, 0, 0, 0.3);background: rgba(255, 0, 0, 0.15);"></div>
           <p>Gas</p>
         </div>
         <div class="color-relevance-div by-block">
-          <div style="border: 2px solid rgba(0, 0, 255, 0.5);background: rgba(0, 0, 255, 0.3);"></div>
+          <div style="border: 2px solid rgba(0, 0, 255, 0.3);background: rgba(0, 0, 255, 0.15);"></div>
           <p>s-block</p>
         </div>
         <div class="color-relevance-div by-block">
-          <div style="border: 2px solid rgba(34, 139, 34, 0.5);background: rgba(34, 139, 34, 0.3);"></div>
+          <div style="border: 2px solid rgba(34, 139, 34, 0.3);background: rgba(34, 139, 34, 0.15);"></div>
           <p>p-block</p>
         </div>
         <div class="color-relevance-div by-block">
-          <div style="border: 2px solid rgba(255, 0, 0, 0.5);background: rgba(255, 0, 0, 0.3);"></div>
+          <div style="border: 2px solid rgba(255, 0, 0, 0.3);background: rgba(255, 0, 0, 0.15);"></div>
           <p>d-block</p>
         </div>
         <div class="color-relevance-div by-block">
-          <div style="border: 2px solid rgba(0, 0, 255, 0.5);background: rgba(0, 0, 255, 0.3);"></div>
+          <div style="border: 2px solid rgba(0, 0, 255, 0.3);background: rgba(0, 0, 255, 0.15);"></div>
           <p>f-block</p>
         </div>
         <div class="color-relevance-div by-category">
-          <div style="border: 2px solid rgba(34, 139, 34, 0.5);background: rgba(34, 139, 34, 0.3);"></div>
+          <div style="border: 2px solid rgba(255, 0, 0, 0.3);background: rgba(255, 0, 0, 0.15);"></div>
           <p>Alkali Metals</p>
         </div>
         <div class="color-relevance-div by-category">
-          <div style="border: 2px solid rgba(255, 0, 0, 0.5);background: rgba(255, 0, 0, 0.3);"></div>
+          <div style="border: 2px solid rgba(255, 165, 0, 0.3);background: rgba(255, 165, 0, 0.15);"></div>
           <p>Alkaline Earth Metals</p>
         </div>
         <div class="color-relevance-div by-category">
-          <div style="border: 2px solid rgba(0, 0, 255, 0.5);background: rgba(0, 0, 255, 0.3);"></div>
+          <div style="border: 2px solid rgba(255, 215, 0, 0.3);background: rgba(255, 215, 0, 0.15);"></div>
           <p>Transition Metals</p>
         </div>
         <div class="color-relevance-div by-category">
-          <div style="border: 2px solid rgba(34, 139, 34, 0.5);background: rgba(34, 139, 34, 0.3);"></div>
+          <div style="border: 2px solid rgba(0, 128, 0, 0.3);background: rgba(0, 128, 0, 0.15);"></div>
           <p>Post-transition Metals</p>
         </div>
         <div class="color-relevance-div by-category">
-          <div style="border: 2px solid rgba(255, 0, 0, 0.5);background: rgba(255, 0, 0, 0.3);"></div>
+          <div style="border: 2px solid rgba(255, 105, 180, 0.3);background: rgba(255, 105, 180, 0.15);"></div>
           <p>Lanthanides</p>
         </div>
         <div class="color-relevance-div by-category">
-          <div style="border: 2px solid rgba(0, 0, 255, 0.5);background: rgba(0, 0, 255, 0.3);"></div>
+          <div style="border: 2px solid rgba(165, 42, 42, 0.3);background: rgba(165, 42, 42, 0.15);"></div>
           <p>Actinides</p>
         </div>
       </div>

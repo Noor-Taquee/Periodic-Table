@@ -12,36 +12,77 @@ body {
   font-family: sans-serif;
 }
 
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 #app {
+  position: relative;
   flex-shrink: 0;
   height: 100%;
   width: 100%;
+  overflow: hidden;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
+}
+#app.light {
   background: white;
+}
+#app.dark {
+  background: black;
+}
+
+#app.light p,
+#app.light i {
+  color: black;
+}
+#app.dark p,
+#app.dark i {
+  color: white;
 }
 
 .top-bar {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
   flex-shrink: 0;
-  height: 15%;
+  height: fit-content;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 20px;
+  padding: 5px 10px;
   margin: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: space-between;
+}
+#app.vertical .top-bar {
+  border-bottom-left-radius: 5vw;
+  border-bottom-right-radius: 5vw;
+}
+#app.horizontal .top-bar {
+  border-bottom-left-radius: 3vh;
+  border-bottom-right-radius: 3vh;
+}
+#app.light .top-bar {
+  background: rgb(245, 250, 255);
+}
+#app.dark .top-bar {
+  background: rgb(0, 20, 50);
 }
 
 .top-bar-content {
   flex-shrink: 0;
   height: 80%;
   width: 100%;
+  overflow: hidden;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -49,35 +90,54 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+#app.verticals .top-bar-content {
+  flex-direction: column;
+}
 
-#app-header {
-  font: 700 40px Arial;
+#app.horizontal #app-header {
+  font: 700 5vh Arial;
+}
+#app.vertical #app-header {
+  font: 700 5vw Arial;
 }
 
 #control-panel {
   flex-shrink: 0;
   height: 100%;
   display: flex;
+  flex-direction: column;
 }
 
 .control-panel-sub-div {
   flex-shrink: 0;
   flex-grow: 1;
-  height: 100%;
   display: flex;
   align-items: center;
 }
 
 .color-relevance-outer-div {
+  flex-shrink: 0;
   height: 20%;
-  display: flex;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  box-sizing: border-box;
+  padding: 3px 0;
   gap: 15px;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
+}
+.color-relevance-outer-div::-webkit-scrollbar {
+  display: none;
 }
 
 .color-relevance-div {
+  flex-shrink: 0;
   display: none;
   gap: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 .color-relevance-div div {
@@ -89,9 +149,31 @@ body {
 .color-relevance-div p {
   margin: 0;
 }
+#app.vertical .color-relevance-div p {
+  font: 500 2.5vw Arial;
+}
+#app.horizontal .color-relevance-div p {
+  font: 500 2.5vh Arial;
+}
 
-#temperature-control-text {
-  margin: 0;
+#app.vertical #view-mode-select,
+#app.vertical #temperature-control-value {
+  height: 3.5vw;
+  border: none;
+  background: transparent;
+  font-size: 3vw;
+}
+#app.horizontal #view-mode-select,
+#app.horizontal #temperature-control-value {
+  height: 3.5vh;
+  border: none;
+  background: transparent;
+  font-size: 3vh;
+}
+
+#view-mode-select:focus,
+#temperature-control-value:focus {
+  outline: rgb(0, 120, 255);
 }
 
 #temperature-slider-div {
@@ -111,17 +193,17 @@ body {
 #temperature-slider::-webkit-slider-runnable-track {
   height: 10px;
   width: 100%;
-  background: linear-gradient(to right, rgba(0, 4, 252, 0.5), rgba(229, 255, 0, 0.5), rgba(255, 0, 0, 0.5));
+  background: linear-gradient(to right, rgb(0, 4, 255), rgb(0, 195, 255));
   border: none;
-  border-radius: 5px;
+  border-radius: 2.5px;
 }
 
 #temperature-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  height: 8px;
-  width: 8px;
-  margin: 1px 0 0 0;
-  border-radius: 50%;
+  height: 10px;
+  width: 5px;
+  margin: 0;
+  border-radius: 2.5px;
   background: black;
 }
 
@@ -136,21 +218,31 @@ body {
   color: black;
 }
 
-
 #inner-app {
   flex-shrink: 0;
-  height: 85%;
+  height: 100%;
   width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: transparent;
+}
+#app.vertical #inner-app {
+  padding: 30vw 0 0 0;
+}
+#app.horizontal #inner-app {
+  padding: 30vh 0 0 0;
 }
 
 #periodic-table {
-  height: 100%;
-  width: fit-content;
+  flex-shrink: 0;
+  width: 100%;
   overflow: scroll;
   box-sizing: border-box;
   margin: 0;
@@ -158,17 +250,18 @@ body {
   gap: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: flex-start;
   background: transparent;
 }
-
+#app.vertical #periodic-table {
+  height: fit-content;
+}
 #periodic-table::-webkit-scrollbar {
   display: none;
 }
 
 #main-table {
-  gap: 5px;
+  gap: 2.5px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -176,8 +269,7 @@ body {
 }
 
 #f-block-table {
-  margin: 0 0 0 auto;
-  gap: 5px;
+  gap: 2.5px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -186,14 +278,14 @@ body {
 }
 
 .group {
-  gap: 5px;
+  gap: 2.5px;
   display: flex;
   flex-direction: column;
   background: transparent;
 }
 
 .period {
-  gap: 5px;
+  gap: 2.5px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -202,12 +294,18 @@ body {
 
 .element-button {
   cursor: pointer;
-  width: 8vh;
-  height: 8vh;
   overflow: hidden;
   border: 1px solid black;
   border-radius: 5px;
   background: transparent;
+}
+#app.vertical .element-button {
+  width: 8vw;
+  height: 8vw;
+}
+#app.horizontal .element-button {
+  width: 8vh;
+  height: 8vh;
 }
 
 .element-info-div {
@@ -221,13 +319,15 @@ body {
   margin: 0;
 }
 
-.atomic-number {
-  font: 700 10px Arial;
+#app.vertical .atomic-number {
+  width: 100%;
+  font: 700 1.5vw Arial;
+  text-align: left;
 }
-
-.mass-number {
-  font: 700 10px Arial;
-  display: none;
+#app.horizontal .atomic-number {
+  width: 100%;
+  font: 700 1.5vh Arial;
+  text-align: left;
 }
 
 .element-name-div {
@@ -240,37 +340,48 @@ body {
   align-items: center;
 }
 
-.element-symbol {
-  font: 500 20px Arial;
+#app.vertical .element-symbol {
+  font: 500 3vw Arial;
+  margin: 0;
+}
+#app.horizontal .element-symbol {
+  font: 500 3.5vh Arial;
   margin: 0;
 }
 
-.element-name {
-  font: 500 10px Arial;
+
+#app.vertical .element-name {
+  font: 500 2vw Arial;
+  margin: 0;
+}
+#app.horizontal .element-name {
+  font: 500 1.5vh Arial;
   margin: 0;
 }
 
 
 #info-panel {
   flex-shrink: 0;
-  flex-grow: 1;
-  height: 100%;
-  min-width: 20%;
+  width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
   box-sizing: border-box;
   margin: auto 0 0 0;
-  padding: 20px 0 200px 10px;
+  padding: 20px 10px;
   gap: 50px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  background: rgb(245, 250, 255);
 }
-
 #info-panel::-webkit-scrollbar {
   display: none;
+}
+#app.light #info-panel {
+  background: rgb(245, 250, 255);
+}
+#app.dark #info-panel {
+  background: rgb(0, 5, 10);
 }
 
 #info-panel-header {
@@ -282,18 +393,31 @@ body {
   gap: 5px;
 }
 
-#atomic-number {
-  font: 700 35px Arial;
+#app.vertical #atomic-number {
+  font: 700 2vh Arial;
+  margin: 0;
+}
+#app.horizontal #atomic-number {
+  font: 700 2vw Arial;
   margin: 0;
 }
 
-#element-name {
-  font: 700 30px Arial;
+#app.vertical #element-name {
+  font: 700 3vh Arial;
+  margin: 0;
+}
+#app.horizontal #element-name {
+  font: 700 3vw Arial;
   margin: 0;
 }
 
-#electronic-configuration {
-  font: 500 20px Arial;
+#app.vertical #electronic-configuration {
+  font: 500 2vh Arial;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.6);
+}
+#app.horizontal #electronic-configuration {
+  font: 500 2vw Arial;
   margin: 0;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -307,15 +431,24 @@ body {
   gap: 5px;
 }
 
-.info-body-text {
-  font: 500 18px Arial;
+#app.vertical .info-body-text {
+  font: 500 3vw Arial;
+  margin: 0;
+}
+#app.horizontal .info-body-text {
+  font: 500 3vh Arial;
   margin: 0;
 }
 
 .info-body-values {
-  font: 500 18px Arial;
   margin: 0;
   color: rgba(0, 0, 0, 0.7);
+}
+#app.vertical .info-body-values {
+  font: 500 3vw Arial;
+}
+#app.horizontal .info-body-values {
+  font: 500 3vh Arial;
 }
 
 #learn-more-link {
