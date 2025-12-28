@@ -14,32 +14,12 @@
   <title>Periodic Table</title>
 </head>
 
-<body>
-  <div id="app" class="vertical light">
+<body id="app" class="vertical dark pink">
+  <div id="app-wrapper">
     <div class="top-bar">
       <div class="top-bar-content">
         <p id="app-header">Periodic Table</p>
-        <div id="control-panel">
-          <div class="control-panel-sub-div" style="display: flex; align-items: center; margin-right: 20px;">
-            <span class="info-body-text">Color By:</span>
-            <select id="view-mode-select" style="padding: 5px; font-size: 16px;">
-              <option value="by-state">State (Phase)</option>
-              <option value="by-block">Block</option>
-              <option value="by-category">Category</option>
-            </select>
-          </div>
-          <div id="state-control-div" class="control-panel-sub-div">
-            <div id="temperature-control-div">
-              <p class="info-body-text">Temperature:
-                <input type="number" id="temperature-control-value" max="6000" min="0" value="298"> K
-              </p>
-              <div id="temperature-slider-div">
-                <input id="temperature-slider" type="range" min="0" max="6000" value="298">
-                <button id="temperature-reset-button"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <button id="control-show-btn" class="toggle large"><i class="ph-bold ph-gear-fine"></i></button>
       </div>
       <div class="color-relevance-outer-div">
         <div class="color-relevance-div by-state" style="display: flex;">
@@ -123,7 +103,7 @@
           <div class="period 7"></div>
         </div>
       </div>
-      <div id="info-panel">
+      <div id="info-panel" style="display: none;">
         <div id="info-panel-header">
           <p id="atomic-number"></p>
           <p id="element-name"></p>
@@ -151,6 +131,86 @@
           </p>
         </div>
         <a id="learn-more-link" href="https://en.wikipedia.org/wiki" target="_blank">Learn more</a>
+      </div>
+      <div id="control-panel" class="added-panel bottom" style="display: none;">
+        <div class="drag-handle vertical"></div>
+        <div id="control-navigation">
+          <button id="element-controls-btn"><p>Element controls</p></button>
+          <button id="appearance-controls-btn"><p>Appearance controls</p></button>
+          <div id="control-nav-indicator" class="nav-indicator"></div>
+        </div>
+        <div id="control-panel-tab-container">
+          <div id="element-controls-panel" class="inner-control-panel">
+            <div id="category-control-div" class="control-dropdown-div">
+              <p class="control-label dropdown-text">Color By:</p>
+              <select id="view-mode-dropdown" class="control-dropdown">
+                <option value="by-state">State (Phase)</option>
+                <option value="by-block">Block</option>
+                <option value="by-category">Category</option>
+              </select>
+            </div>
+            <div id="state-control-div" class="control-slider-div">
+              <div class="header">
+                <p class="control-label">Temperature:
+                  <input type="number" id="temperature-control-value" max="6000" min="0" value="298" class="control-slider-value"> K
+                </p>
+                <button id="temperature-reset-button" class="toggle"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
+              </div>
+              <div id="temperature-slider-div" class="control-slider-wrapper">
+                <input id="temperature-slider" type="range" min="0" max="6000" value="298" class="control-slider">
+              </div>
+            </div>
+          </div>
+          <div id="appearance-controls-panel" class="inner-control-panel">
+            <div id="element-size-control-div" class="control-slider-div">
+              <div class="header">
+                <p class="control-label">Element size scale:
+                  <input type="number" id="element-size-control-value" max="3" min="0.5" step="0.01" value="1" class="control-slider-value">x
+                </p>
+                <button id="element-size-reset-button" class="toggle"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
+              </div>
+              <div id="element-size-slider-div" class="control-slider-wrapper">
+                <input id="element-size-slider" type="range" min="0.5" max="3" step="0.01" value="1" class="control-slider">
+              </div>
+            </div>
+            <div id="element-atomic-number-control-div" class="control-slider-div">
+              <div class="header">
+                <p class="control-label">Element atomic-number scale:
+                  <input type="number" id="element-atomic-number-control-value" max="3" min="0.5" step="0.01" value="1" class="control-slider-value">x
+                </p>
+                <button id="element-atomic-number-reset-button" class="toggle"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
+              </div>
+              <div id="element-atomic-number-slider-div" class="control-slider-wrapper">
+                <input id="element-atomic-number-slider" type="range" min="0.5" max="3" step="0.01" value="1" class="control-slider">
+              </div>
+            </div>
+            <div id="element-symbol-control-div" class="control-slider-div">
+              <div class="header">
+                <p class="control-label">Element symbol scale:
+                  <input type="number" id="element-symbol-control-value" max="3" min="0.5" value="1" class="control-slider-value">x
+                </p>
+                <button id="element-symbol-reset-button" class="toggle"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
+              </div>
+              <div id="element-symbol-slider-div" class="control-slider-wrapper">
+                <input id="element-symbol-slider" type="range" min="0.5" max="3" step="0.01" value="1" class="control-slider">
+              </div>
+            </div>
+            <div id="element-name-control-div" class="control-slider-div">
+              <div class="header">
+                <p class="control-label">Element name scale:
+                  <input type="number" id="element-name-control-value" max="3" min="0.5" value="1" class="control-slider-value">x
+                </p>
+                <button id="element-name-reset-button" class="toggle"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
+              </div>
+              <div id="element-name-slider-div" class="control-slider-wrapper">
+                <input id="element-name-slider" type="range" min="0.5" max="3" step="0.01" value="1" class="control-slider">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="control-panel-sub-div">
+          <button id="control-hide-btn" class="hide-btn"><p>hide</p></button>
+        </div>
       </div>
     </div>
   </div>
