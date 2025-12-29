@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
-  <link rel="stylesheet" href="PeriodicTable.css" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="src/favicon.ico">
+  <link rel="manifest" href="src/site.webmanifest">
   <title>Periodic Table</title>
 </head>
 
@@ -214,7 +215,14 @@
       </div>
     </div>
   </div>
-  <script src="PeriodicTable.js"></script>
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+      });
+    }
+  </script>
 </body>
 
 </html>
