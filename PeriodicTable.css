@@ -501,6 +501,7 @@ i {
   user-select: none;
   touch-action: none;
   cursor: grab;
+  flex-shrink: 0;
   height: 5px;
   width: 50px;
   margin: 10px auto;

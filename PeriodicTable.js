@@ -124,18 +124,20 @@ const elementControlsPanel = document.getElementById("element-controls-panel");
 const appearanceControlsPanel = document.getElementById("appearance-controls-panel");
 
 const controlShowBtn = document.getElementById("control-show-btn");
-controlShowBtn.addEventListener("click", () => {
+controlShowBtn.addEventListener("click", showControlPanel);
+function showControlPanel() {
   if (controlPanel.style.display == "flex") return;
   controlPanel.style.display = "flex";
   controlPanel.style.animation = "slide-in-bottom 0.3s ease";
-});
+}
 
 const controlHideBtn = document.getElementById("control-hide-btn");
-controlHideBtn.addEventListener("click", () => {
+controlHideBtn.addEventListener("click", hideControlPanel);
+function hideControlPanel() {
   if (controlPanel.style.display == "none") return;
   controlPanel.style.animation = "slide-out-bottom 0.3s ease";
   controlPanel.addEventListener("animationend", () => { controlPanel.style.display = 'none' }, { once: true });
-});
+}
 
 document.querySelectorAll("#control-panel-tab-container .control-slider").forEach((slider) => {
   slider.addEventListener("touchstart", () => {
@@ -147,22 +149,13 @@ document.querySelectorAll("#control-panel-tab-container .control-slider").forEac
 });
 
 // #region control resize
-// function handleControlResize(event) {
-//   const touch = event.touches[0];
-//   const dY = window.innerHeight - touch.clientY;
-//   controlPanel.style.height = (touch.clientY <= 50) ? `${window.innerHeight}px` : `${dY}px`;
-// }
-
-// controlResizeHandle.addEventListener("touchstart", () => {
-//   controlResizeHandle.addEventListener("touchmove", handleControlResize);
-// });
-
-// controlResizeHandle.addEventListener("touchend", () => {
-//   controlResizeHandle.removeEventListener("touchmove", handleControlResize);
-// });
-
 function handleControlResize(event) {
   const dY = window.innerHeight - event.clientY;
+  if (dY <= 100) {
+    hideControlPanel();
+    controlPanel.style.height = "200px";
+    return;
+  };
   controlPanel.style.height = (event.clientY <= 50) ? `${window.innerHeight}px` : `${dY}px`;
 }
 
