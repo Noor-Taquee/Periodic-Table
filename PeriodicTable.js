@@ -128,14 +128,14 @@ controlShowBtn.addEventListener("click", showControlPanel);
 function showControlPanel() {
   if (controlPanel.style.display == "flex") return;
   controlPanel.style.display = "flex";
-  controlPanel.style.animation = "slide-in-bottom 0.3s ease";
+  controlPanel.style.animation = (app.classList.contains("vertical")) ? "slide-in-bottom 0.3s ease" : "slide-in-right 0.3s ease";
 }
 
 const controlHideBtn = document.getElementById("control-hide-btn");
 controlHideBtn.addEventListener("click", hideControlPanel);
 function hideControlPanel() {
   if (controlPanel.style.display == "none") return;
-  controlPanel.style.animation = "slide-out-bottom 0.3s ease";
+  controlPanel.style.animation = (app.classList.contains("vertical")) ? "slide-out-bottom 0.3s ease" : "slide-out-right 0.3s ease";
   controlPanel.addEventListener("animationend", () => { controlPanel.style.display = 'none' }, { once: true });
 }
 
