@@ -155,7 +155,7 @@ i {
   width: 100dvw;
   position: relative;
   box-sizing: border-box;
-  padding: 0;
+  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom) 0;
   margin: 0;
   display: flex;
   flex-direction: column;
