@@ -4,8 +4,7 @@ const ASSETS = [
   'style.css',
   'script.js',
   'elementsData.json',
-  'src/favicon.ico',
-  'src/android-chrome-512x512.png'
+  'src/logo.svg'
 ];
 
 // Install the service worker and cache assets
