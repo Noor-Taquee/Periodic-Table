@@ -497,7 +497,9 @@ i {
   margin-bottom: 10px;
 }
 
-.drag-handle {
+.resize-handle {
+  user-select: none;
+  touch-action: none;
   cursor: grab;
   height: 5px;
   width: 50px;
@@ -507,13 +509,12 @@ i {
   opacity: 0.5;
 }
 
-.drag-handle:active {
+.resize-handle:active {
   cursor: grabbing;
 }
 
 #control-panel {
   flex-shrink: 0;
-  height: 40%;
   width: 100%;
   margin-bottom: 0;
   padding: 0 0 10px 0;
@@ -548,7 +549,8 @@ i {
   left: 10%;
   height: 5px;
   width: 40%;
-  margin: 0 auto 0 0 ;
+  margin-top: 0;
+  margin-bottom: 0;
   border-top-left-radius: 2.5px;
   border-top-right-radius: 2.5px;
   background: var(--accent);

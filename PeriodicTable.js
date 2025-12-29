@@ -113,6 +113,8 @@ const infoPanel = document.getElementById("info-panel");
 const controlPanel = document.getElementById("control-panel");
 controlPanel.addEventListener("animationend", () => { controlPanel.style.animation = 'none' });
 
+const controlResizeHandle = document.getElementById("control-resize-handle");
+
 const controlNavigation = document.getElementById("control-navigation");
 const controlNavIndicator = document.getElementById("control-nav-indicator");
 
@@ -144,6 +146,37 @@ document.querySelectorAll("#control-panel-tab-container .control-slider").forEac
   });
 });
 
+// #region control resize
+// function handleControlResize(event) {
+//   const touch = event.touches[0];
+//   const dY = window.innerHeight - touch.clientY;
+//   controlPanel.style.height = (touch.clientY <= 50) ? `${window.innerHeight}px` : `${dY}px`;
+// }
+
+// controlResizeHandle.addEventListener("touchstart", () => {
+//   controlResizeHandle.addEventListener("touchmove", handleControlResize);
+// });
+
+// controlResizeHandle.addEventListener("touchend", () => {
+//   controlResizeHandle.removeEventListener("touchmove", handleControlResize);
+// });
+
+function handleControlResize(event) {
+  const dY = window.innerHeight - event.clientY;
+  controlPanel.style.height = (event.clientY <= 50) ? `${window.innerHeight}px` : `${dY}px`;
+}
+
+controlResizeHandle.addEventListener("pointerdown", (event) => {
+  controlResizeHandle.setPointerCapture(event.pointerId);
+  controlResizeHandle.addEventListener("pointermove", handleControlResize);
+});
+
+controlResizeHandle.addEventListener("pointerup", (event) => {
+  controlResizeHandle.releasePointerCapture(event.pointerId);
+  controlResizeHandle.removeEventListener("pointermove", handleControlResize);
+});
+// #endregion control resize
+
 // #region control navigation
 const elementControlsBtn = document.getElementById("element-controls-btn");
 elementControlsBtn.addEventListener("click", () => {
@@ -156,7 +189,7 @@ appearanceControlsBtn.addEventListener("click", () => {
 });
 
 controlPanelTabContainer.addEventListener("scroll", () => {
-  if (isElementCentered(elementControlsPanel ,controlPanelTabContainer)) {
+  if (isElementCentered(elementControlsPanel, controlPanelTabContainer) && controlNavIndicator.style.marginLeft != "0") {
     controlNavIndicator.style.width = "80%";
     setTimeout(() => {
       controlNavIndicator.style.justifySelf = "flex-start";
@@ -165,10 +198,10 @@ controlPanelTabContainer.addEventListener("scroll", () => {
       controlNavIndicator.style.width = "40%";
     }, parseFloat(getComputedStyle(app).getPropertyValue("--nav-transition-duration")) * 1000);
     // controlNavIndicator.style.transform = "translateX(0)";
-  } else if (isElementCentered(appearanceControlsPanel ,controlPanelTabContainer)) {
+  } else if (isElementCentered(appearanceControlsPanel, controlPanelTabContainer) && controlNavIndicator.style.marginRight != "0") {
     controlNavIndicator.style.width = "80%";
     setTimeout(() => {
-        controlNavIndicator.style.justifySelf = "flex-end";
+      controlNavIndicator.style.justifySelf = "flex-end";
       controlNavIndicator.style.marginRight = "0";
       controlNavIndicator.style.marginLeft = "auto";
       controlNavIndicator.style.width = "40%";
