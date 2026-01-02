@@ -685,13 +685,8 @@ i {
   margin: 0;
 }
 
-.horizontal #element-name {
-  font: 700 3vw Arial;
-  margin: 0;
-}
-
 #electronic-configuration {
-  font: 500 2vw Arial;
+  font: var(--secondary-header);
   margin: 0;
   opacity: 0.6;
 }
@@ -723,15 +718,16 @@ i {
   border-radius: 20px;
   color: var(--primary-text-color);
   background: transparent;
-  border: 1px solid var(--border-color);
-  font: 700 15px Arial;
+  border: 1px solid var(--primary-text-color);
+  font: var(--secondary-text);
+  font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
 }
 
 #learn-more-link:hover {
-  color: var(--primary-text-color);
-  background: var(--border-color);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 /* #endregion info-panel */
@@ -764,14 +760,20 @@ i {
   touch-action: none;
   cursor: grab;
   flex-shrink: 0;
-  height: 5px;
-  width: 50px;
-  margin: 10px auto;
   border-radius: 2.5px;
   background: var(--accent);
   opacity: 0.5;
 }
-
+.vertical .resize-handle {
+  height: 5px;
+  width: 50px;
+  margin: 10px auto;
+}
+.horizontal .resize-handle {
+  height: 50px;
+  width: 5px;
+  margin: auto 10px;
+}
 .resize-handle:active {
   cursor: grabbing;
 }
@@ -780,25 +782,35 @@ i {
   flex-shrink: 0;
   padding: 0 0 10px 0;
   display: flex;
-  flex-direction: column;
 }
-
 .horizontal #control-panel {
   height: 100% !important;
   margin: 0 0 0 auto;
   border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
-
-.horizontal #control-panel .resize-handle {
-  display: none;
-}
-
 .vertical #control-panel {
-  width: 100%;
+  width: 100% !important;
   margin: auto 0 0 0;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  flex-direction: column;
+}
+
+#control-panel-wrapper {
+  flex-shrink: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.vertical #control-panel-wrapper {
+  width: 100%;
+}
+.horizontal #control-panel-wrapper {
+  height: 100%;
 }
 
 #control-navigation {
@@ -888,15 +900,15 @@ i {
 
 .control-dropdown {
   width: 100%;
+  padding: 5px;
   outline: none;
   border: 1px solid var(--border-color);
   border-radius: 5px;
-  background: transparent;
   display: flex;
   align-items: center;
-  padding: 5px;
-  font-size: 16px;
+  font: var(--primary-text);
   color: var(--primary-text-color);
+  background: transparent;
 }
 
 .header {
@@ -977,7 +989,7 @@ i {
 }
 
 .hide-btn p {
-  font-size: 16px;
+  font: var(--primary-text);
   margin: 0;
 }
 

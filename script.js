@@ -154,13 +154,29 @@ document.querySelectorAll("#control-panel-tab-container .control-slider").forEac
 
 // #region control resize
 function handleControlResize(event) {
-  const dY = window.innerHeight - event.clientY;
-  if (dY <= 100) {
-    hideControlPanel();
-    controlPanel.style.height = "200px";
-    return;
-  };
-  controlPanel.style.height = (event.clientY <= 50) ? `${window.innerHeight}px` : `${dY}px`;
+  
+  // Vertical resizing
+  if (app.classList.contains("vertical")) {
+    const dY = window.innerHeight - event.clientY;
+    if (dY <= 100) {
+      hideControlPanel();
+      controlPanel.style.height = "200px";
+      return;
+    };
+    controlPanel.style.height = (event.clientY <= 50) ? `${window.innerHeight}px` : `${dY}px`;
+  } 
+  
+  // Horizontal resizing
+  else {
+    const dX = window.innerWidth - event.clientX;
+    if (dX <= 100) {
+      hideControlPanel();
+      controlPanel.style.width = "200px";
+      return;
+    };
+    controlPanel.style.width = (event.clientX <= 50) ? `${window.innerWidth}px` : `${dX}px`;
+  }
+  
 }
 
 controlResizeHandle.addEventListener("pointerdown", (event) => {
