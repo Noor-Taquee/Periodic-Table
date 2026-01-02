@@ -8,8 +8,8 @@ function createElement(atomic_number, element) {
   elementBtn.classList.add(`group-${element.group}`);
   elementBtn.classList.add(`period-${element.period}`);
   elementBtn.classList.add(`block-${element.block}`);
-  elementBtn.classList.add(`state-${element.phase}`);
-  elementBtn.classList.add(`category-${element.category.replace(/ /g, '-')}`);
+  elementBtn.classList.add(`state-${element.phase}`.toLowerCase());
+  elementBtn.classList.add(`category-${element.category.replace(/ /g, '-')}`.toLowerCase());
 
   let div1 = document.createElement("div");
   div1.className = "element-info-div";
@@ -91,15 +91,19 @@ function updateElementState() {
   for (let atomic_number in allElements) {
     let element = allElements[atomic_number];
     let elementBtn = document.getElementById(element.symbol);
-    elementBtn.classList.remove("state-Solid");
-    elementBtn.classList.remove("state-Liquid");
-    elementBtn.classList.remove("state-Gas");
+    
+    // remove existing state
+    elementBtn.classList.remove("state-solid");
+    elementBtn.classList.remove("state-liquid");
+    elementBtn.classList.remove("state-gas");
+
+    // add calculated state
     if (current_temperature < element.melting) {
-      elementBtn.classList.add("state-Solid");
+      elementBtn.classList.add("state-solid");
     } else if (current_temperature < element.boiling) {
-      elementBtn.classList.add("state-Liquid");
+      elementBtn.classList.add("state-liquid");
     } else {
-      elementBtn.classList.add("state-Gas");
+      elementBtn.classList.add("state-gas");
     }
   }
 }
@@ -217,18 +221,20 @@ function isElementCentered(element, scrollParent) {
 
 // #region element controls
 let viewModeSelect = document.getElementById("view-mode-dropdown");
-viewModeSelect.addEventListener("change", () => {
+viewModeSelect.addEventListener("change", changeViewMode);
+
+function changeViewMode() {
   table.classList.remove("by-state");
   table.classList.remove("by-block");
   table.classList.remove("by-category");
   table.classList.add(viewModeSelect.value);
-  document.querySelectorAll(".color-relevance-div").forEach(div => {
+  document.querySelectorAll(".color-relevance-div").forEach((div) => {
     div.style.display = "none";
   });
-  document.querySelectorAll(`.color-relevance-div.${viewModeSelect.value}`).forEach(div => {
+  document.querySelectorAll(`.color-relevance-div.${viewModeSelect.value}`).forEach((div) => {
     div.style.display = "flex";
   });
-});
+}
 
 let current_temperature = 298;
 
@@ -293,5 +299,6 @@ window.addEventListener("DOMContentLoaded", () => {
   checkOrientation();
   loadElements().then(() => {
     createTable();
-  })
+  });
+  changeViewMode();
 });

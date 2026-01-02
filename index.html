@@ -5,7 +5,7 @@
   <meta name="google-site-verification" content="sCuHQ2Lt1OuPoKxz0M01KXE0nZlSZvXyjHgl6tro-54" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="rgb(225, 240, 250)">
+  <meta name="theme-color" content="var(--secondary-bg)">
   <meta name="author" content="Noor Taquee">
   <meta name="keywords" content="Periodic Table, Periodic Table of elements" />
   <meta name="description" content="Periodic Table of all elements" />
@@ -27,57 +27,90 @@
           <button id="control-show-btn" class="toggle large"><i class="ph-bold ph-gear-fine"></i></button>
         </div>
         <div class="color-relevance-outer-div">
-          <div class="color-relevance-div by-state" style="display: flex;">
-            <div style="border: 2px solid rgba(0, 0, 255, 0.3);background: rgba(0, 0, 255, 0.15);"></div>
-            <p>Solid</p>
+          <div class="color-relevance-div by-state">
+            <div class="state-solid">
+              <p>Solid</p>
+            </div>
           </div>
-          <div class="color-relevance-div by-state" style="display: flex;">
-            <div style="border: 2px solid rgba(34, 139, 34, 0.3);background: rgba(34, 139, 34, 0.15);"></div>
-            <p>Liquid</p>
+          <div class="color-relevance-div by-state">
+            <div class="state-liquid">
+              <p>Liquid</p>
+            </div>
           </div>
-          <div class="color-relevance-div by-state" style="display: flex;">
-            <div style="border: 2px solid rgba(255, 0, 0, 0.3);background: rgba(255, 0, 0, 0.15);"></div>
-            <p>Gas</p>
-          </div>
-          <div class="color-relevance-div by-block">
-            <div style="border: 2px solid rgba(0, 0, 255, 0.3);background: rgba(0, 0, 255, 0.15);"></div>
-            <p>s-block</p>
-          </div>
-          <div class="color-relevance-div by-block">
-            <div style="border: 2px solid rgba(34, 139, 34, 0.3);background: rgba(34, 139, 34, 0.15);"></div>
-            <p>p-block</p>
+          <div class="color-relevance-div by-state">
+            <div class="state-gas">
+              <p>Gas</p>
+            </div>
           </div>
           <div class="color-relevance-div by-block">
-            <div style="border: 2px solid rgba(255, 0, 0, 0.3);background: rgba(255, 0, 0, 0.15);"></div>
-            <p>d-block</p>
+            <div class="block-s">
+              <p>s-block</p>
+            </div>
           </div>
           <div class="color-relevance-div by-block">
-            <div style="border: 2px solid rgba(0, 0, 255, 0.3);background: rgba(0, 0, 255, 0.15);"></div>
-            <p>f-block</p>
+            <div class="block-p">
+              <p>p-block</p>
+            </div>
+          </div>
+          <div class="color-relevance-div by-block">
+            <div class="block-d">
+              <p>d-block</p>
+            </div>
+          </div>
+          <div class="color-relevance-div by-block">
+            <div class="block-f">
+              <p>f-block</p>
+            </div>
           </div>
           <div class="color-relevance-div by-category">
-            <div style="border: 2px solid rgba(255, 0, 0, 0.3);background: rgba(255, 0, 0, 0.15);"></div>
-            <p>Alkali Metals</p>
+            <div class="category-alkali-metal">
+              <p>Alkali Metals</p>
+            </div>
           </div>
           <div class="color-relevance-div by-category">
-            <div style="border: 2px solid rgba(255, 165, 0, 0.3);background: rgba(255, 165, 0, 0.15);"></div>
-            <p>Alkaline Earth Metals</p>
+            <div class="category-alkaline-earth-metal">
+              <p>Alkaline Earth Metals</p>
+            </div>
           </div>
           <div class="color-relevance-div by-category">
-            <div style="border: 2px solid rgba(255, 215, 0, 0.3);background: rgba(255, 215, 0, 0.15);"></div>
-            <p>Transition Metals</p>
+            <div class="category-transition-metal">
+              <p>Transition Metals</p>
+            </div>
           </div>
           <div class="color-relevance-div by-category">
-            <div style="border: 2px solid rgba(0, 128, 0, 0.3);background: rgba(0, 128, 0, 0.15);"></div>
-            <p>Post-transition Metals</p>
+            <div class="category-post-transition-metal">
+              <p>Post-transition Metals</p>
+            </div>
           </div>
           <div class="color-relevance-div by-category">
-            <div style="border: 2px solid rgba(255, 105, 180, 0.3);background: rgba(255, 105, 180, 0.15);"></div>
-            <p>Lanthanides</p>
+            <div class="category-metalloid">
+              <p>Metalloids</p>
+            </div>
           </div>
           <div class="color-relevance-div by-category">
-            <div style="border: 2px solid rgba(165, 42, 42, 0.3);background: rgba(165, 42, 42, 0.15);"></div>
-            <p>Actinides</p>
+            <div class="category-reactive-nonmetal">
+              <p>Reactive Nonmetals</p>
+            </div>
+          </div>
+          <div class="color-relevance-div by-category">
+            <div class="category-halogen">
+              <p>Halogens</p>
+            </div>
+          </div>
+          <div class="color-relevance-div by-category">
+            <div class="category-noble-gas">
+              <p>Noble Gases</p>
+            </div>
+          </div>
+          <div class="color-relevance-div by-category">
+            <div class="category-lanthanide">
+              <p>Lanthanides</p>
+            </div>
+          </div>
+          <div class="color-relevance-div by-category">
+            <div class="category-actinide">
+              <p>Actinides</p>
+            </div>
           </div>
         </div>
       </div>
@@ -148,9 +181,9 @@
             <div id="category-control-div" class="control-dropdown-div">
               <p class="control-label dropdown-text">Color By:</p>
               <select id="view-mode-dropdown" class="control-dropdown">
+                <option value="by-category">Category</option>
                 <option value="by-state">State (Phase)</option>
                 <option value="by-block">Block</option>
-                <option value="by-category">Category</option>
               </select>
             </div>
             <div id="state-control-div" class="control-slider-div">
