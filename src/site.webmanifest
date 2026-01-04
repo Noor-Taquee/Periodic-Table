@@ -1,8 +1,8 @@
 {
     "name": "Periodic Table",
     "short_name": "Periodic Table",
-    "theme_color": "rgb(225, 240, 250)",
-    "background_color": "rgb(225, 240, 250)",
+    "theme_color": "#e1f0fa",
+    "background_color": "#e1f0fa",
     "display": "standalone",
   "icons": [
     {

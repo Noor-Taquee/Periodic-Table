@@ -302,6 +302,12 @@ temperature_slider.addEventListener("input", () => {
 
 // #region appearance controls
 
+function updateDeviceColor() {
+  const themeTag = document.querySelector('meta[name="theme-color"]');
+  const color = getComputedStyle(app).getPropertyValue("--secondary-bg").trim();
+  themeTag.setAttribute("content", color);
+}
+
 // #region theme
 function chooseTheme(theme, button) {
   if (app.classList.contains(theme)) return;
@@ -319,6 +325,8 @@ function chooseTheme(theme, button) {
 
   app.classList.add(selectedTheme);
   selectedThemeIcon.classList.add("selected");
+
+  updateDeviceColor();
 }
 
 let selectedTheme;
@@ -345,6 +353,8 @@ function choosePalette(palette, button) {
 
   app.classList.add(selectedPalette);
   selectedPaletteIcon.classList.add("selected");
+  
+  updateDeviceColor();
 }
 
 let selectedPalette;
@@ -353,16 +363,16 @@ let selectedPaletteIcon;
 const blueBtn = document.getElementById("blue-btn");
 selectedPalette = "blue";
 selectedPaletteIcon = blueBtn;
-blueBtn.addEventListener("click", () => { choosePalette("blue", blueBtn)});
+blueBtn.addEventListener("click", () => { choosePalette("blue", blueBtn) });
 
 const limeBtn = document.getElementById("lime-btn");
-limeBtn.addEventListener("click", () => { choosePalette("lime", limeBtn)});
+limeBtn.addEventListener("click", () => { choosePalette("lime", limeBtn) });
 
 const pinkBtn = document.getElementById("pink-btn");
-pinkBtn.addEventListener("click", () => { choosePalette("pink", pinkBtn)});
+pinkBtn.addEventListener("click", () => { choosePalette("pink", pinkBtn) });
 
 const purpleBtn = document.getElementById("purple-btn");
-purpleBtn.addEventListener("click", () => { choosePalette("purple", purpleBtn)});
+purpleBtn.addEventListener("click", () => { choosePalette("purple", purpleBtn) });
 // #endregion palette
 
 const elementSize_slider = document.getElementById("element-size-slider");
