@@ -228,7 +228,7 @@ appearanceControlsBtn.addEventListener("click", () => {
 });
 
 controlPanelTabContainer.addEventListener("scroll", () => {
-  if (isElementCentered(elementControlsPanel, controlPanelTabContainer) && controlNavIndicator.style.marginLeft != "0") {
+  if (isElementCentered(elementControlsPanel, controlPanelTabContainer) && controlNavIndicator.style.marginLeft === "auto") {
     controlNavIndicator.style.width = "80%";
     setTimeout(() => {
       controlNavIndicator.style.justifySelf = "flex-start";
@@ -239,7 +239,7 @@ controlPanelTabContainer.addEventListener("scroll", () => {
     // controlNavIndicator.style.transform = "translateX(0)";
   }
 
-  else if (isElementCentered(appearanceControlsPanel, controlPanelTabContainer) && controlNavIndicator.style.marginRight != "0") {
+  else if (isElementCentered(appearanceControlsPanel, controlPanelTabContainer) && controlNavIndicator.style.marginRight === "auto") {
     controlNavIndicator.style.width = "80%";
     setTimeout(() => {
       controlNavIndicator.style.justifySelf = "flex-end";
@@ -310,7 +310,7 @@ function chooseTheme(theme, button) {
     input.classList.remove(selectedTheme);
     input.classList.add(theme);
   });
-  
+
   app.classList.remove(selectedTheme);
   selectedThemeIcon.classList.remove("selected");
 

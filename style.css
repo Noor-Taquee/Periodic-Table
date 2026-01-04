@@ -1004,13 +1004,12 @@ html, body {
 /* #endregion control input */
 
 .control-panel-sub-div {
-  position: fixed;
-  z-index: 10;
+  position: absolute;
+  z-index: 1;
   top: auto;
   right: 0;
   bottom: 0;
   left: 0;
-  flex-shrink: 0;
   height: fit-content;
   width: 100%;
   padding: 0 0 20px 0;
