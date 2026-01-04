@@ -1,52 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 /* #region animations */
-@keyframes slide-in-bottom {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+@keyframes slide-in-top {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
-
-@keyframes slide-out-right {
-  from {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  to {
-    transform: translateX(100%);
-    opacity: 0;
-  }
+@keyframes slide-out-top {
+  to { transform: translateY(-100%); opacity: 0; }
 }
 
 @keyframes slide-in-right {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slide-out-right {
+  to { transform: translateX(100%); opacity: 0; }
 }
 
-@keyframes slide-out-bottom {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
+@keyframes slide-in-left {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slide-out-left {
+  to { transform: translateX(-100%); opacity: 0; }
+}
 
-  to {
-    transform: translateY(100%);
-    opacity: 0;
-  }
+@keyframes slide-in-bottom {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slide-out-bottom {
+  to { transform: translateY(100%); opacity: 0; }
 }
 /* #endregion animations */
 
@@ -58,8 +42,9 @@
 .vertical {
   --primary-header: 700 5vw Arial;
   --secondary-header: 700 2vh Arial;
-  --tertiary-header: 700 1.5vh Arial;
-  --primary-text: 500 1.5vh Arial;
+  --tertiary-header: 600 1.5vh Arial;
+  
+  --primary-text: 500 1.7vh Arial;
   --secondary-text: 500 1.2vh Arial;
 }
 
@@ -67,7 +52,8 @@
   --primary-header: 700 5vh Arial;
   --secondary-header: 700 2vw Arial;
   --tertiary-header: 700 1.5vw Arial;
-  --primary-text: 500 1.5vw Arial;
+  
+  --primary-text: 500 1.6vw Arial;
   --secondary-text: 500 1.2vw Arial;
 }
 
@@ -167,14 +153,13 @@ html, body {
   background: var(--primary-bg);
 }
 
-p,
-span,
-i {
-  color: var(--primary-text-color);
-}
-
 * {
   -webkit-tap-highlight-color: transparent;
+  color: var(--primary-text-color);
+  transition: background 0.5s ease, color 0.5s ease;
+}
+*::-webkit-scrollbar {
+  display: none;
 }
 
 #app-wrapper {
@@ -780,7 +765,8 @@ i {
 
 #control-panel {
   flex-shrink: 0;
-  padding: 0 0 10px 0;
+  overflow: hidden;
+  padding: 0;
   display: flex;
 }
 .horizontal #control-panel {
@@ -798,10 +784,11 @@ i {
 }
 
 #control-panel-wrapper {
-  flex-shrink: 0;
+  position: relative;
   flex-grow: 1;
   max-width: 100%;
   max-height: 100%;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -815,6 +802,7 @@ i {
 
 #control-navigation {
   position: relative;
+  flex-shrink: 1;
   width: 100%;
   padding: 10px 10%;
   display: flex;
@@ -852,6 +840,7 @@ i {
 #control-panel-tab-container {
   flex-grow: 1;
   width: 100%;
+  max-height: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
   scroll-behavior: smooth;
@@ -859,38 +848,31 @@ i {
   display: flex;
 }
 
-#control-panel-tab-container::-webkit-scrollbar {
-  display: none;
-}
-
 .inner-control-panel {
-  flex-shrink: 0;
+  flex-shrink: 1;
   height: 100%;
-  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
   scroll-snap-align: center;
   scroll-snap-stop: always;
   box-sizing: border-box;
-  padding: 10px 10px 100px 10px;
-  gap: 15px;
+  padding: 10px;
+  gap: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.control-panel-sub-div {
-  flex-grow: 1;
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-}
-
+/* #region control input */
+.control-radio-div,
 .control-slider-div,
 .control-dropdown-div {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 5px;
 }
 
 .control-label {
@@ -900,7 +882,7 @@ i {
 
 .control-dropdown {
   width: 100%;
-  padding: 5px;
+  padding: 10px 5px;
   outline: none;
   border: 1px solid var(--border-color);
   border-radius: 5px;
@@ -917,6 +899,7 @@ i {
   justify-content: space-between;
 }
 
+/* #region slider */
 .control-slider-value {
   flex-shrink: 1;
   min-width: 0;
@@ -933,19 +916,14 @@ i {
 }
 
 .control-slider {
-  width: 100%;
-  display: flex;
-  gap: 5px;
-}
-
-.control-slider {
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
   width: 100%;
+  display: flex;
+  gap: 5px;
   background: transparent;
 }
-
 .control-slider::-webkit-slider-runnable-track {
   height: 10px;
   width: 100%;
@@ -953,7 +931,6 @@ i {
   border: none;
   border-radius: 5px;
 }
-
 .control-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 20px;
@@ -962,6 +939,7 @@ i {
   border-radius: 2.5px;
   background: var(--accent);
 }
+/* #endregion slider */
 
 .toggle {
   cursor: pointer;
@@ -977,11 +955,76 @@ i {
   font-size: 25px;
 }
 
+/* #region radio */
+.radio-container {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.radio-input {
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: var(--secondary-bg);
+}
+.radio-input.selected {
+  cursor: default;
+  border-radius: 15px;
+  background: var(--accent);
+}
+
+.palette-input {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.palette-input.selected {
+  cursor: default;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.radio-label {
+  margin: 0;
+  font: var(--secondary-text);
+  color: var(--primary-text-color);
+}
+/* #endregion radio */
+
+/* #endregion control input */
+
+.control-panel-sub-div {
+  position: fixed;
+  z-index: 10;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  flex-shrink: 0;
+  height: fit-content;
+  width: 100%;
+  padding: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to top, var(--primary-bg) 10%, rgba(0, 0, 0, 0));
+}
+
 .hide-btn {
   cursor: pointer;
   height: 40px;
   width: 80px;
-  margin: 0 0 0 auto;
+  margin: 0;
   border: none;
   border-radius: 20px;
   background-color: var(--secondary-bg);

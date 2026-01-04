@@ -1,4 +1,27 @@
+class element {
+  constructor() {
+    this.name = "";
+    this.symbol = "";
+    this.atomic_number = "";
+    this.electronic_configuration = "";
+    this.period = "";
+    this.group = "";
+    this.block = "";
+    this.category = "";
+
+    this.mass = "";
+    this.density = "";
+    this.phase = "";
+    this.boiling = "";
+    this.melting = "";
+    this.electronegativity = "";
+    this.atomic_radius = "";
+    this.year_discovered = "";
+  }
+}
+
 let allElements;
+let focused_element;
 
 function createElement(atomic_number, element) {
   let elementBtn = document.createElement("button");
@@ -91,7 +114,7 @@ function updateElementState() {
   for (let atomic_number in allElements) {
     let element = allElements[atomic_number];
     let elementBtn = document.getElementById(element.symbol);
-    
+
     // remove existing state
     elementBtn.classList.remove("state-solid");
     elementBtn.classList.remove("state-liquid");
@@ -131,6 +154,7 @@ const controlShowBtn = document.getElementById("control-show-btn");
 controlShowBtn.addEventListener("click", showControlPanel);
 function showControlPanel() {
   if (controlPanel.style.display == "flex") return;
+
   controlPanel.style.display = "flex";
   controlPanel.style.animation = (app.classList.contains("vertical")) ? "slide-in-bottom 0.3s ease" : "slide-in-right 0.3s ease";
 }
@@ -139,44 +163,46 @@ const controlHideBtn = document.getElementById("control-hide-btn");
 controlHideBtn.addEventListener("click", hideControlPanel);
 function hideControlPanel() {
   if (controlPanel.style.display == "none") return;
+
   controlPanel.style.animation = (app.classList.contains("vertical")) ? "slide-out-bottom 0.3s ease" : "slide-out-right 0.3s ease";
   controlPanel.addEventListener("animationend", () => { controlPanel.style.display = 'none' }, { once: true });
 }
 
 document.querySelectorAll("#control-panel-tab-container .control-slider").forEach((slider) => {
-  slider.addEventListener("touchstart", () => {
-    controlPanelTabContainer.style.overflowX = "hidden";
-  });
-  slider.addEventListener("touchend", () => {
-    controlPanelTabContainer.style.overflowX = "scroll";
-  });
+  slider.addEventListener("touchstart", () => { controlPanelTabContainer.style.overflowX = "hidden" });
+  slider.addEventListener("touchend", () => { controlPanelTabContainer.style.overflowX = "scroll" });
 });
 
 // #region control resize
 function handleControlResize(event) {
-  
+
   // Vertical resizing
   if (app.classList.contains("vertical")) {
     const dY = window.innerHeight - event.clientY;
+
+    // If the panel becomes too short, hide it
     if (dY <= 100) {
       hideControlPanel();
       controlPanel.style.height = "200px";
       return;
     };
+
     controlPanel.style.height = (event.clientY <= 50) ? `${window.innerHeight}px` : `${dY}px`;
-  } 
-  
+  }
+
   // Horizontal resizing
   else {
     const dX = window.innerWidth - event.clientX;
+
     if (dX <= 100) {
       hideControlPanel();
       controlPanel.style.width = "200px";
       return;
     };
+
     controlPanel.style.width = (event.clientX <= 50) ? `${window.innerWidth}px` : `${dX}px`;
   }
-  
+
 }
 
 controlResizeHandle.addEventListener("pointerdown", (event) => {
@@ -211,7 +237,9 @@ controlPanelTabContainer.addEventListener("scroll", () => {
       controlNavIndicator.style.width = "40%";
     }, parseFloat(getComputedStyle(app).getPropertyValue("--nav-transition-duration")) * 1000);
     // controlNavIndicator.style.transform = "translateX(0)";
-  } else if (isElementCentered(appearanceControlsPanel, controlPanelTabContainer) && controlNavIndicator.style.marginRight != "0") {
+  }
+
+  else if (isElementCentered(appearanceControlsPanel, controlPanelTabContainer) && controlNavIndicator.style.marginRight != "0") {
     controlNavIndicator.style.width = "80%";
     setTimeout(() => {
       controlNavIndicator.style.justifySelf = "flex-end";
@@ -273,6 +301,69 @@ temperature_slider.addEventListener("input", () => {
 // #endregion element controls
 
 // #region appearance controls
+
+// #region theme
+function chooseTheme(theme, button) {
+  if (app.classList.contains(theme)) return;
+
+  document.querySelectorAll(".palette-input").forEach((input) => {
+    input.classList.remove(selectedTheme);
+    input.classList.add(theme);
+  });
+  
+  app.classList.remove(selectedTheme);
+  selectedThemeIcon.classList.remove("selected");
+
+  selectedTheme = theme;
+  selectedThemeIcon = button;
+
+  app.classList.add(selectedTheme);
+  selectedThemeIcon.classList.add("selected");
+}
+
+let selectedTheme;
+let selectedThemeIcon;
+
+const lightBtn = document.getElementById("light-btn");
+selectedTheme = "light";
+selectedThemeIcon = lightBtn;
+lightBtn.addEventListener("click", () => { chooseTheme("light", lightBtn) });
+
+const darkBtn = document.getElementById("dark-btn");
+darkBtn.addEventListener("click", () => { chooseTheme("dark", darkBtn) });
+// #endregion theme
+
+// #region palette
+function choosePalette(palette, button) {
+  if (app.classList.contains(palette)) return;
+
+  app.classList.remove(selectedPalette);
+  selectedPaletteIcon.classList.remove("selected");
+
+  selectedPalette = palette;
+  selectedPaletteIcon = button;
+
+  app.classList.add(selectedPalette);
+  selectedPaletteIcon.classList.add("selected");
+}
+
+let selectedPalette;
+let selectedPaletteIcon;
+
+const blueBtn = document.getElementById("blue-btn");
+selectedPalette = "blue";
+selectedPaletteIcon = blueBtn;
+blueBtn.addEventListener("click", () => { choosePalette("blue", blueBtn)});
+
+const limeBtn = document.getElementById("lime-btn");
+limeBtn.addEventListener("click", () => { choosePalette("lime", limeBtn)});
+
+const pinkBtn = document.getElementById("pink-btn");
+pinkBtn.addEventListener("click", () => { choosePalette("pink", pinkBtn)});
+
+const purpleBtn = document.getElementById("purple-btn");
+purpleBtn.addEventListener("click", () => { choosePalette("purple", purpleBtn)});
+// #endregion palette
 
 const elementSize_slider = document.getElementById("element-size-slider");
 elementSize_slider.addEventListener("input", () => {

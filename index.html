@@ -151,19 +151,17 @@
         </div>
         <div id="info-panel-body">
           <p class="info-body-text">Symbol: <span id="element-symbol-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Atomic Radius: <span id="atomic-radius-text" class="info-body-values"></span></p>
           <p class="info-body-text">Mass Number: <span id="mass-number-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Density: <span id="density-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Electronegativity: <span id="electronegativity-text"
-              class="info-body-values"></span>
-          </p>
-          <p class="info-body-text">Phase: <span id="phase-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Melting Point: <span id="melting-point-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Boiling Point: <span id="boiling-point-text" class="info-body-values"></span></p>
           <p class="info-body-text">Period: <span id="period-text" class="info-body-values"></span></p>
           <p class="info-body-text">Group: <span id="group-text" class="info-body-values"></span></p>
           <p class="info-body-text">Block: <span id="block-text" class="info-body-values"></span></p>
           <p class="info-body-text">Category: <span id="category-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Phase: <span id="phase-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Melting Point: <span id="melting-point-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Boiling Point: <span id="boiling-point-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Atomic Radius: <span id="atomic-radius-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Density: <span id="density-text" class="info-body-values"></span></p>
+          <p class="info-body-text">Electronegativity: <span id="electronegativity-text"class="info-body-values"></span></p>
           <p class="info-body-text">Year Discovered: <span id="year-discovered-text" class="info-body-values"></span>
           </p>
         </div>
@@ -200,6 +198,26 @@
               </div>
             </div>
             <div id="appearance-controls-panel" class="inner-control-panel">
+              <div id="theme-control-div" class="control-radio-div">
+                <div class="header">
+                  <p class="control-label">Choose Theme</p>
+                </div>
+                <div class="radio-container">
+                  <button id="light-btn" class="radio-input selected"><p class="radio-label">Light</p></button>
+                  <button id="dark-btn" class="radio-input"><p class="radio-label">Dark<span style="opacity: 0.5;">(beta)</span></p></button>
+                </div>
+              </div>
+              <div id="palette-control-div" class="control-radio-div">
+                <div class="header">
+                  <p class="control-label">Choose Palette</p>
+                </div>
+                <div class="radio-container">
+                  <button id="blue-btn" class="palette-input light blue selected"></button>
+                  <button id="lime-btn" class="palette-input light lime"></button>
+                  <button id="pink-btn" class="palette-input light pink"></button>
+                  <button id="purple-btn" class="palette-input light purple"></button>
+                </div>
+              </div>
               <div id="element-size-control-div" class="control-slider-div">
                 <div class="header">
                   <p class="control-label">Element size scale:
