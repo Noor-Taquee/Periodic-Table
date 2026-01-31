@@ -1,11 +1,6 @@
 const CACHE_NAME = 'periodic table';
-const ASSETS = [
-  'index.html',
-  'style.css',
-  'script.js',
-  'elementsData.json',
-  'src/logo.svg'
-];
+const cache_version = 'v1.2.6';
+const ASSETS = [ 'public/logo.svg' ];
 
 // Install the service worker and cache assets
 self.addEventListener('install', (event) => {

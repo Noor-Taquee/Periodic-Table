@@ -4,21 +4,22 @@
 <head>
   <meta name="google-site-verification" content="sCuHQ2Lt1OuPoKxz0M01KXE0nZlSZvXyjHgl6tro-54" />
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
   <meta name="theme-color" content="var(--secondary-bg)">
   <meta name="author" content="Noor Taquee">
   <meta name="keywords" content="Periodic Table, Periodic Table of elements" />
   <meta name="description" content="Periodic Table of all elements" />
-  <link rel="icon" href="src/logo.svg">
-  <link rel="manifest" href="src/site.webmanifest">
+  <link rel="icon" href="public/logo.svg">
+  <link rel="manifest" href="public/manifest.json">
   <title>Periodic Table</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="src/index.css" />
+  <link rel="stylesheet" href="src/settings/settings.css" />
 </head>
 
-<body id="app" class="vertical light blue">
+<body id="app" data-theme="light" data-orientation="vertical" data-palette="blue">
   <div id="app-wrapper">
     <div id="inner-app">
       <div class="top-bar">
@@ -212,10 +213,10 @@
                   <p class="control-label">Choose Palette</p>
                 </div>
                 <div class="radio-container">
-                  <button id="blue-btn" class="palette-input light blue selected"></button>
-                  <button id="lime-btn" class="palette-input light lime"></button>
-                  <button id="pink-btn" class="palette-input light pink"></button>
-                  <button id="purple-btn" class="palette-input light purple"></button>
+                  <button id="blue-btn" data-theme="light" data-palette="blue" class="palette-input selected"></button>
+                  <button id="lime-btn" data-theme="light" data-palette="lime" class="palette-input"></button>
+                  <button id="pink-btn" data-theme="light" data-palette="pink" class="palette-input"></button>
+                  <button id="purple-btn" data-theme="light" data-palette="purple" class="palette-input"></button>
                 </div>
               </div>
               <div id="element-size-control-div" class="control-slider-div">
@@ -271,7 +272,8 @@
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script type="module" src="src/main.js"></script>
+  <script type="module" src="src/settings/settings.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
