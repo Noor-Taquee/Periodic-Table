@@ -1,22 +1,22 @@
 import { createElement } from "../utils/UI/create-dom.js";
 import { app } from "../main.js";
-import { updateElementState, table } from "../main.js";
+import { allElements, table } from "../main.js";
 
 //#region control panel
-const controlPanel = document.getElementById("control-panel");
+const controlPanel = document.getElementById("control-panel") as HTMLDivElement;
 controlPanel.addEventListener("animationend", () => { controlPanel.style.animation = 'none' });
 
-const controlResizeHandle = document.getElementById("control-resize-handle");
+const controlResizeHandle = document.getElementById("control-resize-handle") as HTMLDivElement;
 
 // const controlNavigation = document.getElementById("control-navigation");
-const controlNavIndicator = document.getElementById("control-nav-indicator");
+const controlNavIndicator = document.getElementById("control-nav-indicator") as HTMLDivElement;
 
-const controlPanelTabContainer = document.getElementById("control-panel-tab-container");
+const controlPanelTabContainer = document.getElementById("control-panel-tab-container") as HTMLDivElement;
 
-const elementControlsPanel = document.getElementById("element-controls-panel");
-const appearanceControlsPanel = document.getElementById("appearance-controls-panel");
+const elementControlsPanel = document.getElementById("element-controls-panel") as HTMLDivElement;
+const appearanceControlsPanel = document.getElementById("appearance-controls-panel") as HTMLDivElement;
 
-const controlShowBtn = document.getElementById("control-show-btn");
+const controlShowBtn = document.getElementById("control-show-btn") as HTMLButtonElement;
 controlShowBtn.addEventListener("click", showControlPanel);
 
 function showControlPanel() {
@@ -26,7 +26,7 @@ function showControlPanel() {
   controlPanel.style.animation = (app.dataset.orientation == "vertical") ? "slide-in-bottom 0.3s ease" : "slide-in-right 0.3s ease";
 }
 
-const controlHideBtn = document.getElementById("control-hide-btn");
+const controlHideBtn = document.getElementById("control-hide-btn") as HTMLButtonElement;
 controlHideBtn.addEventListener("click", hideControlPanel);
 function hideControlPanel() {
   if (controlPanel.style.display == "none") return;
@@ -41,7 +41,7 @@ controlPanelTabContainer.querySelectorAll(".control-slider").forEach((slider) =>
 });
 
 //#region control resize
-function handleControlResize(event) {
+function handleControlResize(event: PointerEvent) {
 
   // Vertical resizing
   if (app.dataset.orientation == "vertical") {
@@ -84,12 +84,12 @@ controlResizeHandle.addEventListener("pointerup", (event) => {
 //#endregion control resize
 
 //#region control navigation
-const elementControlsBtn = document.getElementById("element-controls-btn");
+const elementControlsBtn = document.getElementById("element-controls-btn") as HTMLButtonElement;
 elementControlsBtn.addEventListener("click", () => {
   elementControlsPanel.scrollIntoView();
 });
 
-const appearanceControlsBtn = document.getElementById("appearance-controls-btn");
+const appearanceControlsBtn = document.getElementById("appearance-controls-btn") as HTMLButtonElement;
 appearanceControlsBtn.addEventListener("click", () => {
   appearanceControlsPanel.scrollIntoView();
 });
@@ -119,7 +119,7 @@ controlPanelTabContainer.addEventListener("scroll", () => {
 });
 
 const tolerance = 1;
-function isElementCentered(element, scrollParent) {
+function isElementCentered(element: HTMLElement, scrollParent: HTMLElement) {
   const containerRect = scrollParent.getBoundingClientRect();
   const elementRect = element.getBoundingClientRect();
 
@@ -131,7 +131,7 @@ function isElementCentered(element, scrollParent) {
 //#endregion control navigation
 
 //#region element controls
-const viewModeSelect = document.getElementById("view-mode-dropdown");
+const viewModeSelect = document.getElementById("view-mode-dropdown") as HTMLSelectElement;
 window.addEventListener("DOMContentLoaded", changeViewMode);
 viewModeSelect.addEventListener("change", changeViewMode);
 
@@ -142,17 +142,38 @@ function changeViewMode() {
   
   table.classList.add(viewModeSelect.value);
   
-  document.querySelectorAll(".color-relevance-div").forEach((div) => {
+  document.querySelectorAll<HTMLDivElement>(".color-relevance-div").forEach(div => {
     div.style.display = "none";
   });
-  document.querySelectorAll(`.color-relevance-div.${viewModeSelect.value}`).forEach((div) => {
+  document.querySelectorAll<HTMLDivElement>(`.color-relevance-div.${viewModeSelect.value}`).forEach(div => {
     div.style.display = "flex";
   });
 }
 
-let current_temperature = 298;
+export function updateElementState() {
+  for (let atomic_number in allElements) {
+    let element = allElements[atomic_number];
+    let elementBtn = document.getElementById(element.symbol) as HTMLButtonElement;
 
-const temperature_input = document.getElementById("temperature-control-value");
+    // remove existing state
+    elementBtn.classList.remove("state-solid");
+    elementBtn.classList.remove("state-liquid");
+    elementBtn.classList.remove("state-gas");
+
+    // add calculated state
+    if (current_temperature < element.melting) {
+      elementBtn.classList.add("state-solid");
+    } else if (current_temperature < element.boiling) {
+      elementBtn.classList.add("state-liquid");
+    } else {
+      elementBtn.classList.add("state-gas");
+    }
+  }
+}
+
+let current_temperature = "298";
+
+const temperature_input = document.getElementById("temperature-control-value") as HTMLInputElement;
 temperature_input.addEventListener("input", () => {
   current_temperature = temperature_input.value;
   // Update temperature value to show current temperature
@@ -160,7 +181,7 @@ temperature_input.addEventListener("input", () => {
   updateElementState();
 });
 
-const temperature_slider = document.getElementById("temperature-slider");
+const temperature_slider = document.getElementById("temperature-slider") as HTMLInputElement;
 temperature_slider.addEventListener("input", () => {
   current_temperature = temperature_slider.value;
   // Update temperature value to show current temperature
@@ -173,7 +194,7 @@ temperature_slider.addEventListener("input", () => {
 //#region appearance controls
 
 function updateDeviceColor() {
-  const themeTag = document.querySelector('meta[name="theme-color"]');
+  const themeTag = document.querySelector('meta[name="theme-color"]') as HTMLMetaElement;
   const color = getComputedStyle(app).getPropertyValue("--secondary-bg").trim();
   themeTag.setAttribute("content", color);
 }
@@ -186,14 +207,14 @@ function updateDeviceColor() {
  * @param {HTMLElement} button 
  * @returns 
  */
-function chooseTheme(theme, button) {
+function chooseTheme(theme: string, button: HTMLElement) {
   if (app.dataset.theme == theme) return;
 
-  paletteSelection.querySelectorAll(".palette-input").forEach((input) => {
+  paletteSelection.querySelectorAll<HTMLDivElement>(".palette-input").forEach((input) => {
     input.dataset.theme = theme;
   });
 
-  themeSelection.querySelectorAll(".selected").forEach(selectedThemeIcon => {
+  themeSelection.querySelectorAll<HTMLDivElement>(".selected").forEach((selectedThemeIcon) => {
     selectedThemeIcon.classList.remove("selected");
   });
 
@@ -203,12 +224,12 @@ function chooseTheme(theme, button) {
   updateDeviceColor();
 }
 
-const themeSelection = document.getElementById("theme-control-div");
+const themeSelection = document.getElementById("theme-control-div") as HTMLDivElement;
 
-const lightBtn = document.getElementById("light-btn");
+const lightBtn = document.getElementById("light-btn") as HTMLDivElement;
 lightBtn.addEventListener("click", () => { chooseTheme("light", lightBtn) });
 
-const darkBtn = document.getElementById("dark-btn");
+const darkBtn = document.getElementById("dark-btn") as HTMLDivElement;
 darkBtn.addEventListener("click", () => { chooseTheme("dark", darkBtn) });
 //#endregion theme
 
@@ -219,7 +240,7 @@ darkBtn.addEventListener("click", () => { chooseTheme("dark", darkBtn) });
  * @param {HTMLElement} button 
  * @returns 
  */
-function choosePalette(palette, button) {
+function choosePalette(palette: string, button: HTMLDivElement) {
   if (app.dataset.palette == palette) return;
 
   paletteSelection.querySelectorAll(".selected").forEach(selectedPaletteIcon => {
@@ -232,40 +253,40 @@ function choosePalette(palette, button) {
   updateDeviceColor();
 }
 
-const paletteSelection = document.getElementById("palette-control-div");
+const paletteSelection = document.getElementById("palette-control-div") as HTMLDivElement;
 
-const blueBtn = document.getElementById("blue-btn");
+const blueBtn = document.getElementById("blue-btn") as HTMLDivElement;
 blueBtn.addEventListener("click", () => { choosePalette("blue", blueBtn) });
 
-const limeBtn = document.getElementById("lime-btn");
+const limeBtn = document.getElementById("lime-btn") as HTMLDivElement;
 limeBtn.addEventListener("click", () => { choosePalette("lime", limeBtn) });
 
-const pinkBtn = document.getElementById("pink-btn");
+const pinkBtn = document.getElementById("pink-btn") as HTMLDivElement;
 pinkBtn.addEventListener("click", () => { choosePalette("pink", pinkBtn) });
 
-const purpleBtn = document.getElementById("purple-btn");
+const purpleBtn = document.getElementById("purple-btn") as HTMLDivElement;
 purpleBtn.addEventListener("click", () => { choosePalette("purple", purpleBtn) });
 //#endregion palette
 
 
 //#region sliders
 // depends [table]
-const elementSize_slider = document.getElementById("element-size-slider");
+const elementSize_slider = document.getElementById("element-size-slider") as HTMLInputElement;
 elementSize_slider.addEventListener("input", () => {
   table.style.setProperty("--element-size-scale", elementSize_slider.value);
 });
 
-const elementAtomicNumberScale_slider = document.getElementById("element-atomic-number-slider");
+const elementAtomicNumberScale_slider = document.getElementById("element-atomic-number-slider") as HTMLInputElement;
 elementAtomicNumberScale_slider.addEventListener("input", () => {
   table.style.setProperty("--element-atomic-number-scale", elementAtomicNumberScale_slider.value);
 });
 
-const elementSymbol_slider = document.getElementById("element-symbol-slider");
+const elementSymbol_slider = document.getElementById("element-symbol-slider") as HTMLInputElement;
 elementSymbol_slider.addEventListener("input", () => {
   table.style.setProperty("--element-symbol-scale", elementSymbol_slider.value);
 });
 
-const elementName_slider = document.getElementById("element-name-slider");
+const elementName_slider = document.getElementById("element-name-slider") as HTMLInputElement;
 elementName_slider.addEventListener("input", () => {
   table.style.setProperty("--element-name-scale", elementName_slider.value);
 });
