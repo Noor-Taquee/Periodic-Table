@@ -165,11 +165,6 @@ function updateDeviceColor() {
 }
 //#region theme
 // depends [ app, paletteSection, updateDeviceColor]
-/**
- * @param {string} theme
- * @param {HTMLElement} button
- * @returns
- */
 function chooseTheme(theme, button) {
     if (app.dataset.theme == theme)
         return;
@@ -191,11 +186,6 @@ darkBtn.addEventListener("click", () => { chooseTheme("dark", darkBtn); });
 //#endregion theme
 //#region palette
 // depends [ app, updateDeviceColor ]
-/**
- * @param {string} palette
- * @param {HTMLElement} button
- * @returns
- */
 function choosePalette(palette, button) {
     if (app.dataset.palette == palette)
         return;
