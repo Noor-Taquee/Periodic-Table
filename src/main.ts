@@ -1,4 +1,5 @@
 import { createElement } from "./utils/UI/create-dom.js";
+import { app } from "./app.js";
 
 class tableElement {
   name = "";
@@ -128,8 +129,6 @@ function showInfo() {
   const lernMoreLink = document.getElementById("learn-more-link") as HTMLAnchorElement;
   lernMoreLink.href = `https://en.wikipedia.org/wiki/${focused_element.name}`;
 }
-
-export const app = document.getElementById("app") as HTMLDivElement;
 
 export const table = document.getElementById("periodic-table") as HTMLDivElement;
 export const infoPanel = document.getElementById("info-panel") as HTMLDivElement;
