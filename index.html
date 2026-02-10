@@ -275,7 +275,7 @@
   <script type="module" src="./dist/main.js"></script>
   <script type="module" src="./dist/settings/settings.js"></script>
   <script>
-    if (!'serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./dist/sw.js', {
           scope: "./",
