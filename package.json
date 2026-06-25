@@ -2,18 +2,23 @@
   "name": "periodic-table",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
   "main": "main.js",
   "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.{js,ts,json,css}\"",
+    "lint": "eslint src/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Noor-Taquee/Periodic-Table.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
   "bugs": {
     "url": "https://github.com/Noor-Taquee/Periodic-Table/issues"
   },
