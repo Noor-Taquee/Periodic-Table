@@ -271,19 +271,7 @@
         </div>
       </div>
     </div>
-  </div>
-  <script type="module" src="./dist/main.js"></script>
-  <script type="module" src="./dist/settings/settings.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./dist/sw.js', {
-          scope: "./",
-          type: "module"
-        })
-      });
-    }
-  </script>
-</body>
-
+    <script type="module" src="./dist/main.js"></script>
+    <script type="module" src="./dist/settings/settings.js"></script>
+  </body>
 </html>
