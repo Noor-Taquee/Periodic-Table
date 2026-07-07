@@ -6,3 +6,5 @@ dist/
 
 # windows folder
 desktop.ini
+
+*.code-workspace
