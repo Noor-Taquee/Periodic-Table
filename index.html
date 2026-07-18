@@ -1,277 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
-<head>
-  <meta name="google-site-verification" content="sCuHQ2Lt1OuPoKxz0M01KXE0nZlSZvXyjHgl6tro-54" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
-  <meta name="theme-color" content="var(--secondary-bg)">
-  <meta name="author" content="Noor Taquee">
-  <meta name="keywords" content="Periodic Table, Periodic Table of elements" />
-  <meta name="description" content="Periodic Table of all elements" />
-  <link rel="icon" href="public/logo.svg">
-  <link rel="manifest" href="public/manifest.json">
-  <title>Periodic Table</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
-  <link rel="stylesheet" href="src/index.css" />
-  <link rel="stylesheet" href="src/settings/settings.css" />
-</head>
-
-<body id="app" data-theme="light" data-orientation="vertical" data-palette="blue">
-  <div id="app-wrapper">
-    <div id="inner-app">
-      <div class="top-bar">
-        <div class="top-bar-content">
-          <p id="app-header">Periodic Table</p>
-          <button id="control-show-btn" class="toggle large"><i class="ph-bold ph-gear-fine"></i></button>
-        </div>
-        <div class="color-relevance-outer-div">
-          <div class="color-relevance-div by-state">
-            <div class="state-solid">
-              <p>Solid</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-state">
-            <div class="state-liquid">
-              <p>Liquid</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-state">
-            <div class="state-gas">
-              <p>Gas</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-block">
-            <div class="block-s">
-              <p>s-block</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-block">
-            <div class="block-p">
-              <p>p-block</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-block">
-            <div class="block-d">
-              <p>d-block</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-block">
-            <div class="block-f">
-              <p>f-block</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-category">
-            <div class="category-alkali-metal">
-              <p>Alkali Metals</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-category">
-            <div class="category-alkaline-earth-metal">
-              <p>Alkaline Earth Metals</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-category">
-            <div class="category-transition-metal">
-              <p>Transition Metals</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-category">
-            <div class="category-post-transition-metal">
-              <p>Post-transition Metals</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-category">
-            <div class="category-metalloid">
-              <p>Metalloids</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-category">
-            <div class="category-reactive-nonmetal">
-              <p>Reactive Nonmetals</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-category">
-            <div class="category-halogen">
-              <p>Halogens</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-category">
-            <div class="category-noble-gas">
-              <p>Noble Gases</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-category">
-            <div class="category-lanthanide">
-              <p>Lanthanides</p>
-            </div>
-          </div>
-          <div class="color-relevance-div by-category">
-            <div class="category-actinide">
-              <p>Actinides</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="periodic-table" class="by-state">
-        <div id="main-table">
-          <div class="group 1"></div>
-          <div class="group 2"></div>
-          <div class="group 3"></div>
-          <div class="group 4"></div>
-          <div class="group 5"></div>
-          <div class="group 6"></div>
-          <div class="group 7"></div>
-          <div class="group 8"></div>
-          <div class="group 9"></div>
-          <div class="group 10"></div>
-          <div class="group 11"></div>
-          <div class="group 12"></div>
-          <div class="group 13"></div>
-          <div class="group 14"></div>
-          <div class="group 15"></div>
-          <div class="group 16"></div>
-          <div class="group 17"></div>
-          <div class="group 18"></div>
-        </div>
-        <div id="f-block-table">
-          <div class="period 6"></div>
-          <div class="period 7"></div>
-        </div>
-      </div>
-      <div id="info-panel" style="display: none;">
-        <div id="info-panel-header">
-          <p id="atomic-number"></p>
-          <p id="element-name"></p>
-          <p id="electronic-configuration"></p>
-        </div>
-        <div>
-          <img id="element-image">
-        </div>
-        <div id="info-panel-body">
-          <p class="info-body-text">Symbol: <span id="element-symbol-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Mass Number: <span id="mass-number-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Period: <span id="period-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Group: <span id="group-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Block: <span id="block-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Category: <span id="category-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Phase: <span id="phase-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Melting Point: <span id="melting-point-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Boiling Point: <span id="boiling-point-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Atomic Radius: <span id="atomic-radius-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Density: <span id="density-text" class="info-body-values"></span></p>
-          <p class="info-body-text">Electronegativity: <span id="electronegativity-text"class="info-body-values"></span></p>
-          <p class="info-body-text">Year Discovered: <span id="year-discovered-text" class="info-body-values"></span>
-          </p>
-        </div>
-        <a id="learn-more-link" href="https://en.wikipedia.org/wiki" target="_blank">Learn more</a>
-      </div>
-      <div id="control-panel" class="added-panel bottom" style="display: none; height: 500px;">
-        <div id="control-resize-handle" class="resize-handle vertical"></div>
-        <div id="control-panel-wrapper">
-          <div id="control-navigation">
-            <button id="element-controls-btn"><p>Element controls</p></button>
-            <button id="appearance-controls-btn"><p>Appearance controls</p></button>
-            <div id="control-nav-indicator" class="nav-indicator" style="margin-left: 0; margin-right: auto;"></div>
-          </div>
-          <div id="control-panel-tab-container">
-            <div id="element-controls-panel" class="inner-control-panel">
-              <div id="category-control-div" class="control-dropdown-div">
-                <p class="control-label dropdown-text">Color By:</p>
-                <select id="view-mode-dropdown" class="control-dropdown">
-                  <option value="by-category">Category</option>
-                  <option value="by-state">State (Phase)</option>
-                  <option value="by-block">Block</option>
-                </select>
-              </div>
-              <div id="state-control-div" class="control-slider-div">
-                <div class="header">
-                  <p class="control-label">Temperature:
-                    <input type="number" id="temperature-control-value" max="6000" min="0" value="298" class="control-slider-value"> K
-                  </p>
-                  <button id="temperature-reset-button" class="toggle"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
-                </div>
-                <div id="temperature-slider-div" class="control-slider-wrapper">
-                  <input id="temperature-slider" type="range" min="0" max="6000" value="298" class="control-slider">
-                </div>
-              </div>
-            </div>
-            <div id="appearance-controls-panel" class="inner-control-panel">
-              <div id="theme-control-div" class="control-radio-div">
-                <div class="header">
-                  <p class="control-label">Choose Theme</p>
-                </div>
-                <div class="radio-container">
-                  <button id="light-btn" class="radio-input selected"><p class="radio-label">Light</p></button>
-                  <button id="dark-btn" class="radio-input"><p class="radio-label">Dark<span style="opacity: 0.5;">(beta)</span></p></button>
-                </div>
-              </div>
-              <div id="palette-control-div" class="control-radio-div">
-                <div class="header">
-                  <p class="control-label">Choose Palette</p>
-                </div>
-                <div class="radio-container">
-                  <button id="blue-btn" data-theme="light" data-palette="blue" class="palette-input selected"></button>
-                  <button id="lime-btn" data-theme="light" data-palette="lime" class="palette-input"></button>
-                  <button id="pink-btn" data-theme="light" data-palette="pink" class="palette-input"></button>
-                  <button id="purple-btn" data-theme="light" data-palette="purple" class="palette-input"></button>
-                </div>
-              </div>
-              <div id="element-size-control-div" class="control-slider-div">
-                <div class="header">
-                  <p class="control-label">Element size scale:
-                    <input type="number" id="element-size-control-value" max="3" min="0.5" step="0.01" value="1" class="control-slider-value">x
-                  </p>
-                  <button id="element-size-reset-button" class="toggle"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
-                </div>
-                <div id="element-size-slider-div" class="control-slider-wrapper">
-                  <input id="element-size-slider" type="range" min="0.5" max="3" step="0.01" value="1" class="control-slider">
-                </div>
-              </div>
-              <div id="element-atomic-number-control-div" class="control-slider-div">
-                <div class="header">
-                  <p class="control-label">Element atomic-number scale:
-                    <input type="number" id="element-atomic-number-control-value" max="3" min="0.5" step="0.01" value="1" class="control-slider-value">x
-                  </p>
-                  <button id="element-atomic-number-reset-button" class="toggle"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
-                </div>
-                <div id="element-atomic-number-slider-div" class="control-slider-wrapper">
-                  <input id="element-atomic-number-slider" type="range" min="0.5" max="3" step="0.01" value="1" class="control-slider">
-                </div>
-              </div>
-              <div id="element-symbol-control-div" class="control-slider-div">
-                <div class="header">
-                  <p class="control-label">Element symbol scale:
-                    <input type="number" id="element-symbol-control-value" max="3" min="0.5" value="1" class="control-slider-value">x
-                  </p>
-                  <button id="element-symbol-reset-button" class="toggle"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
-                </div>
-                <div id="element-symbol-slider-div" class="control-slider-wrapper">
-                  <input id="element-symbol-slider" type="range" min="0.5" max="3" step="0.01" value="1" class="control-slider">
-                </div>
-              </div>
-              <div id="element-name-control-div" class="control-slider-div">
-                <div class="header">
-                  <p class="control-label">Element name scale:
-                    <input type="number" id="element-name-control-value" max="3" min="0.5" value="1" class="control-slider-value">x
-                  </p>
-                  <button id="element-name-reset-button" class="toggle"><i class="ph-bold ph-arrow-counter-clockwise"></i></button>
-                </div>
-                <div id="element-name-slider-div" class="control-slider-wrapper">
-                  <input id="element-name-slider" type="range" min="0.5" max="3" step="0.01" value="1" class="control-slider">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="control-panel-sub-div">
-            <button id="control-hide-btn" class="hide-btn"><p>hide</p></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script type="module" src="./dist/main.js"></script>
-    <script type="module" src="./dist/settings/settings.js"></script>
+  <head>
+    <meta
+      name="google-site-verification"
+      content="sCuHQ2Lt1OuPoKxz0M01KXE0nZlSZvXyjHgl6tro-54"
+    />
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="var(--secondary-bg)" />
+    <meta name="author" content="Noor Taquee" />
+    <meta
+      name="keywords"
+      content="Periodic Table, Periodic Table of elements"
+    />
+    <meta name="description" content="Periodic Table of all elements" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/logo.svg" />
+    <title>Periodic Table</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
