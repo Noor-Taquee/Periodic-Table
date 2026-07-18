@@ -1,0 +1,212 @@
+:root {
+  --solid-bg: #0060f025;
+  --solid-color: #0060f0;
+
+  --liquid-bg: #002c0025;
+  --liquid-color: #002c00;
+
+  --gas-bg: #d6002425;
+  --gas-color: #d60024;
+
+  --s-block-bg: #002c0025;
+  --s-block-color: #002c00;
+
+  --p-block-bg: #cd1d5e25;
+  --p-block-color: #cd1d5e;
+
+  --d-block-bg: #6232ec25;
+  --d-block-color: #6232ec;
+
+  --f-block-bg: #94570025;
+  --f-block-color: #945700;
+
+  --alkali-metal-bg: #00758c25;
+  --alkali-metal-color: #00758c;
+
+  --alkaline-earth-metal-bg: #d6002425;
+  --alkaline-earth-metal-color: #d60024;
+
+  --transition-metal-bg: #6232ec25;
+  --transition-metal-color: #6232ec;
+
+  --post-transition-metal-bg: #002c0025;
+  --post-transition-metal-color: #002c00;
+
+  --metalloid-bg: #94570025;
+  --metalloid-color: #945700;
+
+  --reactive-nonmetal-bg: #0060f025;
+  --reactive-nonmetal-color: #0060f0;
+
+  --halogen-bg: #3f374f25;
+  --halogen-color: #3f374f;
+
+  --noble-gas-bg: #cd1d5e25;
+  --noble-gas-color: #cd1d5e;
+
+  --lanthanide-bg: #00335525;
+  --lanthanide-color: #003355;
+
+  --actinide-bg: #c7320025;
+  --actinide-color: #c73200;
+}
+.by-category .category-alkali-metal {
+  border-color: var(--alkali-metal-color);
+  background-color: var(--alkali-metal-bg);
+}
+
+.by-category .category-alkali-metal p {
+  color: var(--alkali-metal-color);
+}
+
+.by-category .category-alkaline-earth-metal {
+  border-color: var(--alkaline-earth-metal-color);
+  background-color: var(--alkaline-earth-metal-bg);
+}
+
+.by-category .category-alkaline-earth-metal p {
+  color: var(--alkaline-earth-metal-color);
+}
+
+.by-category .category-transition-metal {
+  border-color: var(--transition-metal-color);
+  background-color: var(--transition-metal-bg);
+}
+
+.by-category .category-transition-metal p {
+  color: var(--transition-metal-color);
+}
+
+.by-category .category-post-transition-metal {
+  border-color: var(--post-transition-metal-color);
+  background-color: var(--post-transition-metal-bg);
+}
+
+.by-category .category-post-transition-metal p {
+  color: var(--post-transition-metal-color);
+}
+
+.by-category .category-metalloid {
+  border-color: var(--metalloid-color);
+  background-color: var(--metalloid-bg);
+}
+
+.by-category .category-metalloid p {
+  color: var(--metalloid-color);
+}
+
+.by-category .category-reactive-nonmetal {
+  border-color: var(--reactive-nonmetal-color);
+  background-color: var(--reactive-nonmetal-bg);
+}
+
+.by-category .category-reactive-nonmetal p {
+  color: var(--reactive-nonmetal-color);
+}
+
+.by-category .category-halogen {
+  border-color: var(--halogen-color);
+  background-color: var(--halogen-bg);
+}
+
+.by-category .category-halogen p {
+  color: var(--halogen-color);
+}
+
+.by-category .category-noble-gas {
+  border-color: var(--noble-gas-color);
+  background-color: var(--noble-gas-bg);
+}
+
+.by-category .category-noble-gas p {
+  color: var(--noble-gas-color);
+}
+
+.by-category .category-lanthanide {
+  border-color: var(--lanthanide-color);
+  background-color: var(--lanthanide-bg);
+}
+
+.by-category .category-lanthanide p {
+  color: var(--lanthanide-color);
+}
+
+.by-category .category-actinide {
+  border-color: var(--actinide-color);
+  background-color: var(--actinide-bg);
+}
+
+.by-category .category-actinide p {
+  color: var(--actinide-color);
+}
+
+/*#endregion by category */
+
+/*#region by block*/
+.by-block .block-s {
+  border-color: var(--s-block-color);
+  background-color: var(--s-block-bg);
+}
+
+.by-block .block-s p {
+  color: var(--s-block-color);
+}
+
+.by-block .block-p {
+  border-color: var(--p-block-color);
+  background-color: var(--p-block-bg);
+}
+
+.by-block .block-p p {
+  color: var(--p-block-color);
+}
+
+.by-block .block-d {
+  border-color: var(--d-block-color);
+  background-color: var(--d-block-bg);
+}
+
+.by-block .block-d p {
+  color: var(--d-block-color);
+}
+
+.by-block .block-f {
+  border-color: var(--f-block-color);
+  background-color: var(--f-block-bg);
+}
+
+.by-block .block-f p {
+  color: var(--f-block-color);
+}
+
+/*#endregion by block*/
+
+/*#region by state*/
+.by-state .state-solid {
+  border-color: var(--solid-color);
+  background: var(--solid-bg);
+}
+
+.by-state .state-solid p {
+  color: var(--solid-color);
+}
+
+.by-state .state-liquid {
+  border-color: var(--liquid-color);
+  background: var(--liquid-bg);
+}
+
+.by-state .state-liquid p {
+  color: var(--liquid-color);
+}
+
+.by-state .state-gas {
+  border-color: var(--gas-color);
+  background: var(--gas-bg);
+}
+
+.by-state .state-gas p {
+  color: var(--gas-color);
+}
+
+/*#endregion by state*/

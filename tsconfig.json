@@ -1,35 +1,7 @@
 {
-  "compilerOptions": {
-    // Environment Settings
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "target": "esnext",
-    "jsx": "react-jsx",
-
-    "allowJs": true,
-    "checkJs": false,
-
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    // Recommended Options
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
-    "types": ["vite/client"],
-
-    "noEmit": true
-  },
-  "include": ["src"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
