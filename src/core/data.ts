@@ -39,7 +39,7 @@ export type ElementData = {
 export type TableData = ElementData[];
 
 export async function loadElement() {
-  const response = await fetch("/src/data/elements.json");
+  const response = await fetch("/data/elements.json");
 
   const data: Record<string, ElementData> = await response.json();
 
