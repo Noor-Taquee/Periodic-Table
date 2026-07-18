@@ -1,4 +1,3 @@
-
 :root {
   --solid-bg: #0060f025;
   --solid-color: #0060f0;
@@ -9,19 +8,17 @@
   --gas-bg: #d6002425;
   --gas-color: #d60024;
 
-
   --s-block-bg: #002c0025;
   --s-block-color: #002c00;
 
   --p-block-bg: #cd1d5e25;
   --p-block-color: #cd1d5e;
 
-  --d-block-bg: #6232EC25;
-  --d-block-color: #6232EC;
+  --d-block-bg: #6232ec25;
+  --d-block-color: #6232ec;
 
   --f-block-bg: #94570025;
   --f-block-color: #945700;
-
 
   --alkali-metal-bg: #00758c25;
   --alkali-metal-color: #00758c;
@@ -29,8 +26,8 @@
   --alkaline-earth-metal-bg: #d6002425;
   --alkaline-earth-metal-color: #d60024;
 
-  --transition-metal-bg: #6232EC25;
-  --transition-metal-color: #6232EC;
+  --transition-metal-bg: #6232ec25;
+  --transition-metal-color: #6232ec;
 
   --post-transition-metal-bg: #002c0025;
   --post-transition-metal-color: #002c00;

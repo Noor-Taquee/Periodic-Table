@@ -17,7 +17,11 @@ export function MainTable({ data, onSelectElement }: MainTableProps) {
   return (
     <div className="table-piece" id="main-table">
       {mainElements.map((element) => (
-        <ElementCell key={element.symbol} element={element} onSelectElement={onSelectElement} />
+        <ElementCell
+          key={element.symbol}
+          element={element}
+          onSelectElement={onSelectElement}
+        />
       ))}
     </div>
   );

@@ -13,5 +13,5 @@ root.dataset.palette = "blue";
 createRoot(root).render(
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 );

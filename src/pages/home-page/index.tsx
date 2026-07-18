@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export function HomePage() {
   const [selectedElement, setSelectedElement] = useState<ElementData | null>(
-    null,
+    null
   );
 
   return (
