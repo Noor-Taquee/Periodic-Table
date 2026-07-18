@@ -1,0 +1,62 @@
+.element-cell {
+  cursor: pointer;
+
+  /*width: clamp(50px, 100%, 100%);
+  aspect-ratio: 1 / 1;*/
+
+  overflow: hidden;
+
+  border-width: 0px;
+  border-style: solid;
+  border-radius: calc(var(--element-size) / 10);
+
+  background: transparent;
+
+  p {
+    line-height: 1;
+  }
+
+  &:hover {
+    border-width: 1px;
+  }
+}
+
+.element-info-div {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.atomic-number {
+  width: 100%;
+
+  text-align: left;
+
+  font: var(--element-atomic-number-weight)
+    var(--element-atomic-number-size)/var(--element-atomic-number-line-height)
+    var(--element-atomic-number-font-family);
+}
+
+.element-name-div {
+  flex-shrink: 0;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.element-symbol {
+  font: var(--element-symbol-weight)
+    var(--element-symbol-size)/var(--element-symbol-line-height)
+    var(--element-symbol-font-family);
+}
+
+.element-name {
+  font: var(--element-name-weight)
+    var(--element-name-size)/var(--element-name-line-height)
+    var(--element-name-font-family);
+}
