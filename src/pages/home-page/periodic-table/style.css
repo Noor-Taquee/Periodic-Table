@@ -27,7 +27,9 @@
 }
 
 .table-piece {
-  --table-width: calc((18 * var(--element-cell-size)) + (17 * var(--element-gap)));
+  --table-width: calc(
+    (18 * var(--element-cell-size)) + (17 * var(--element-gap))
+  );
 
   width: var(--table-width);
 
