@@ -4,24 +4,7 @@
   --element-symbol-scale: 1;
   --element-name-scale: 1;
 
-  --min-element-size: 50px;
-
-  --element-size: calc(50px * var(--element-size-scale));
-
-  --element-atomic-number-weight: 700;
-  --element-atomic-number-size: calc(10px * var(--element-atomic-number-scale));
-  --element-atomic-number-line-height: 1;
-  --element-atomic-number-font-family: "Oswald";
-
-  --element-symbol-weight: 500;
-  --element-symbol-size: calc(22px * var(--element-symbol-scale));
-  --element-symbol-line-height: 1.15;
-  --element-symbol-font-family: Arial;
-
-  --element-name-weight: 500;
-  --element-name-size: calc(10px * var(--element-name-scale));
-  --element-name-line-height: 1;
-  --element-name-font-family: "Oswald";
+  --element-cell-size: 70px;
 
   --element-gap: 1px;
 }
@@ -33,7 +16,6 @@
   overflow-y: hidden;
   overflow-x: scroll;
 
-  margin: 0;
   padding: 5px;
 
   display: flex;
@@ -41,13 +23,17 @@
   align-items: flex-start;
   gap: 15px;
 
-  background: var(--absolute-bg);
+  background-color: var(--absolute-bg);
 }
 
 .table-piece {
-  width: 100%;
+  --table-width: calc(
+    (18 * var(--element-cell-size)) + (17 * var(--element-gap))
+  );
 
-  overflow: auto;
+  width: var(--table-width);
+
+  zoom: calc((100vw - 10px) / var(--table-width));
 
   display: grid;
   gap: var(--element-gap);

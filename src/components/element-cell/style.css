@@ -1,20 +1,16 @@
 .element-cell {
   cursor: pointer;
+  touch-action: manipulation;
 
-  /*width: clamp(50px, 100%, 100%);
-  aspect-ratio: 1 / 1;*/
+  aspect-ratio: 1 / 1;
 
   overflow: hidden;
 
+  padding: 5px;
+
   border-width: 0px;
   border-style: solid;
-  border-radius: calc(var(--element-size) / 10);
-
-  background: transparent;
-
-  p {
-    line-height: 1;
-  }
+  border-radius: 5px;
 
   &:hover {
     border-width: 1px;
@@ -34,15 +30,16 @@
 
   text-align: left;
 
-  font: var(--element-atomic-number-weight)
-    var(--element-atomic-number-size)/var(--element-atomic-number-line-height)
-    var(--element-atomic-number-font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1;
+  font-family: "Oswald";
 }
 
 .element-name-div {
-  flex-shrink: 0;
   flex-grow: 1;
   width: 100%;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -50,13 +47,22 @@
 }
 
 .element-symbol {
-  font: var(--element-symbol-weight)
-    var(--element-symbol-size)/var(--element-symbol-line-height)
-    var(--element-symbol-font-family);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.1;
+  font-family: "Oswald";
 }
 
 .element-name {
-  font: var(--element-name-weight)
-    var(--element-name-size)/var(--element-name-line-height)
-    var(--element-name-font-family);
+  width: 100%;
+  height: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  text-align: center;
+
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.65px;
+  font-family: "Oswald";
 }
