@@ -1,0 +1,7 @@
+
+#main-table {
+  aspect-ratio: 18 / 6;
+
+  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+}
