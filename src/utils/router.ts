@@ -1,4 +1,4 @@
-export type InnerRoute = [string[], string[]]
+export type InnerRoute = [string[], string[]];
 
 export function changeHash(newHash: string) {
   window.location.hash = "#" + newHash;
