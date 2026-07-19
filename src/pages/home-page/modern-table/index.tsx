@@ -15,6 +15,10 @@ export function ModernTable({ route }: ModernTableProps) {
     null
   );
 
+  if (route) {
+    // TODO: implement element logic
+  }
+
   return (
     <div id="modern-table">
       <PeriodicTable onSelectElement={setSelectedElement} />
