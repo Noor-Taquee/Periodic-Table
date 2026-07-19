@@ -11,10 +11,15 @@
   border-width: 0px;
   border-style: solid;
   border-radius: 5px;
+  border-color: var(--primary-cell-color);
+
+  background-color: var(--secondary-cell-color);
 
   &:hover {
     border-width: 1px;
   }
+
+  p { color: var(--primary-cell-color); }
 }
 
 .element-info-div {
