@@ -1,15 +1,9 @@
 {
   "recommendations": [
     // Linter
-    "dbaeumer.vscode-eslint",
+    "oxc.oxc-vscode",
 
     // Code formatter
-    "esbenp.prettier-vscode",
-
-    // Icon theme
-    "pkief.material-icon-theme",
-
-    // Theme
-    "sdras.night-owl"
+    "esbenp.prettier-vscode"
   ]
 }
