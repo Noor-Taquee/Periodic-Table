@@ -1,28 +1,6 @@
 {
-  //#region: MARK: font
-  "editor.fontFamily": "'Google Sans Code', JetBrains Mono, Consolas, monospace",
-  "editor.fontLigatures": true,
-  "editor.fontSize": 17,
-  "editor.lineHeight": 1.5,
-  "editor.cursorSmoothCaretAnimation": "on",
-  //#endregion: font
-
-  "files.autoSave": "off",
-
-  //#region: MARK: snippets
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
-  "editor.snippetSuggestions": "inline",
-  "editor.quickSuggestions": {
-    "other": "on",
-    "comments": "on",
-    "strings": "on"
-  },
-  //#endregion: snippets
-
-  // #region: MARK: Git
-  "git.enableSmartCommit": false,
-  // #region: Git
 
   // #region: MARK: JS/TS
   "js/ts.updateImportsOnFileMove.enabled": "always",
@@ -42,7 +20,13 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
