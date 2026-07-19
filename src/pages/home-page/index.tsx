@@ -1,12 +1,28 @@
-import { PeriodicTable } from "./periodic-table";
-import InfoPanel from "./info-panel";
-import type { ElementData } from "../../core/data";
-import { useState } from "react";
+import { useEffect } from "react";
+import { changeHash, type InnerRoute } from "../../utils/router";
+import { ModernTable } from "./modern-table";
 
-export function HomePage() {
-  const [selectedElement, setSelectedElement] = useState<ElementData | null>(
-    null
-  );
+const routes = ["", "modern", "mandeleevs", "triads", "octaves"];
+
+interface HomePageProps {
+  route: InnerRoute;
+}
+
+export function HomePage({ route }: HomePageProps) {
+  const [location, attribute] = route;
+
+  const panel = location[0] || "modern";
+
+  const innerRoute: InnerRoute = [location.slice(1), attribute];
+
+  useEffect(() => {
+    const panel = location[0];
+
+    if (!routes.includes(panel)) {
+      changeHash("home/modern");
+      return;
+    }
+  }, [location]);
 
   return (
     <div id="home-page" className="app-panel">
@@ -16,8 +32,9 @@ export function HomePage() {
         </div>
       </div>
       <div className="panel-content">
-        <PeriodicTable onSelectElement={setSelectedElement} />
-        <InfoPanel element={selectedElement} />
+        {(panel == "" || panel == "modern") && (
+          <ModernTable route={innerRoute} />
+        )}
       </div>
     </div>
   );

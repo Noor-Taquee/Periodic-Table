@@ -3,13 +3,13 @@ import "./colors.css";
 
 import { useState, useEffect } from "react";
 
-import MainTable from "../../../components/main-table";
-import SecondTable from "../../../components/second-table";
+import MainTable from "../../../../components/main-table";
+import SecondTable from "../../../../components/second-table";
 import {
   loadElement,
   type TableData,
   type ElementData,
-} from "../../../core/data";
+} from "../../../../core/data";
 
 interface PeriodicTableProps {
   onSelectElement: (element: ElementData | null) => void;

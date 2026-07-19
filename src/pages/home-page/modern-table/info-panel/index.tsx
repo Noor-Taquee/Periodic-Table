@@ -1,17 +1,11 @@
-import type { ElementData } from "../../../core/data";
+import type { ElementData } from "../../../../core/data";
 import "./style.css";
 
 interface InfoPanelProps {
-  element: ElementData | null;
+  element: ElementData;
 }
 
 export function InfoPanel({ element }: InfoPanelProps) {
-  if (!element) {
-    return (
-      <div id="info-panel">Select an element to view its information.</div>
-    );
-  }
-
   return (
     <div id="info-panel">
       <div id="info-panel-header">
@@ -105,7 +99,7 @@ export function InfoPanel({ element }: InfoPanelProps) {
       <a
         className="learn-more-link"
         id="learn-more-link"
-        href="https://en.wikipedia.org/wiki"
+        href={`https://en.wikipedia.org/wiki/${element.name}`}
         target="_blank"
       >
         Learn more
