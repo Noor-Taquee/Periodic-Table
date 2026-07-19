@@ -50,163 +50,100 @@
   --actinide-bg: #c7320025;
   --actinide-color: #c73200;
 }
-.by-category .category-alkali-metal {
-  border-color: var(--alkali-metal-color);
-  background-color: var(--alkali-metal-bg);
-}
 
-.by-category .category-alkali-metal p {
-  color: var(--alkali-metal-color);
+/* #region MARK: by category 
+*/
+.by-category .category-alkali-metal {
+  --primary-cell-color: var(--alkali-metal-color);
+  --secondary-cell-color: var(--alkali-metal-bg);
 }
 
 .by-category .category-alkaline-earth-metal {
-  border-color: var(--alkaline-earth-metal-color);
-  background-color: var(--alkaline-earth-metal-bg);
-}
-
-.by-category .category-alkaline-earth-metal p {
-  color: var(--alkaline-earth-metal-color);
+  --primary-cell-color: var(--alkaline-earth-metal-color);
+  --secondary-cell-color: var(--alkaline-earth-metal-bg);
 }
 
 .by-category .category-transition-metal {
-  border-color: var(--transition-metal-color);
-  background-color: var(--transition-metal-bg);
-}
-
-.by-category .category-transition-metal p {
-  color: var(--transition-metal-color);
+  --primary-cell-color: var(--transition-metal-color);
+  --secondary-cell-color: var(--transition-metal-bg);
 }
 
 .by-category .category-post-transition-metal {
-  border-color: var(--post-transition-metal-color);
-  background-color: var(--post-transition-metal-bg);
-}
-
-.by-category .category-post-transition-metal p {
-  color: var(--post-transition-metal-color);
+  --primary-cell-color: var(--post-transition-metal-color);
+  --secondary-cell-color: var(--post-transition-metal-bg);
 }
 
 .by-category .category-metalloid {
-  border-color: var(--metalloid-color);
-  background-color: var(--metalloid-bg);
-}
-
-.by-category .category-metalloid p {
-  color: var(--metalloid-color);
+  --primary-cell-color: var(--metalloid-color);
+  --secondary-cell-color: var(--metalloid-bg);
 }
 
 .by-category .category-reactive-nonmetal {
-  border-color: var(--reactive-nonmetal-color);
-  background-color: var(--reactive-nonmetal-bg);
-}
-
-.by-category .category-reactive-nonmetal p {
-  color: var(--reactive-nonmetal-color);
+  --primary-cell-color: var(--reactive-nonmetal-color);
+  --secondary-cell-color: var(--reactive-nonmetal-bg);
 }
 
 .by-category .category-halogen {
-  border-color: var(--halogen-color);
-  background-color: var(--halogen-bg);
-}
-
-.by-category .category-halogen p {
-  color: var(--halogen-color);
+  --primary-cell-color: var(--halogen-color);
+  --secondary-cell-color: var(--halogen-bg);
 }
 
 .by-category .category-noble-gas {
-  border-color: var(--noble-gas-color);
-  background-color: var(--noble-gas-bg);
-}
-
-.by-category .category-noble-gas p {
-  color: var(--noble-gas-color);
+  --primary-cell-color: var(--noble-gas-color);
+  --secondary-cell-color: var(--noble-gas-bg);
 }
 
 .by-category .category-lanthanide {
-  border-color: var(--lanthanide-color);
-  background-color: var(--lanthanide-bg);
-}
-
-.by-category .category-lanthanide p {
-  color: var(--lanthanide-color);
+  --primary-cell-color: var(--lanthanide-color);
+  --secondary-cell-color: var(--lanthanide-bg);
 }
 
 .by-category .category-actinide {
-  border-color: var(--actinide-color);
-  background-color: var(--actinide-bg);
+  --primary-cell-color: var(--actinide-color);
+  --secondary-cell-color: var(--actinide-bg);
 }
 
-.by-category .category-actinide p {
-  color: var(--actinide-color);
-}
+/* #endregion by category */
 
-/*#endregion by category */
-
-/*#region by block*/
+/* #region MARK: by block 
+*/
 .by-block .block-s {
-  border-color: var(--s-block-color);
-  background-color: var(--s-block-bg);
-}
-
-.by-block .block-s p {
-  color: var(--s-block-color);
+  --primary-cell-color: var(--s-block-color);
+  --secondary-cell-color: var(--s-block-bg);
 }
 
 .by-block .block-p {
-  border-color: var(--p-block-color);
-  background-color: var(--p-block-bg);
-}
-
-.by-block .block-p p {
-  color: var(--p-block-color);
+  --primary-cell-color: var(--p-block-color);
+  --secondary-cell-color: var(--p-block-bg);
 }
 
 .by-block .block-d {
-  border-color: var(--d-block-color);
-  background-color: var(--d-block-bg);
-}
-
-.by-block .block-d p {
-  color: var(--d-block-color);
+  --primary-cell-color: var(--d-block-color);
+  --secondary-cell-color: var(--d-block-bg);
 }
 
 .by-block .block-f {
-  border-color: var(--f-block-color);
-  background-color: var(--f-block-bg);
+  --primary-cell-color: var(--f-block-color);
+  --secondary-cell-color: var(--f-block-bg);
 }
 
-.by-block .block-f p {
-  color: var(--f-block-color);
-}
+/* #endregion by block*/
 
-/*#endregion by block*/
-
-/*#region by state*/
+/* #region MARK: by state 
+*/
 .by-state .state-solid {
-  border-color: var(--solid-color);
-  background: var(--solid-bg);
-}
-
-.by-state .state-solid p {
-  color: var(--solid-color);
+  --primary-cell-color: var(--solid-color);
+  --secondary-cell: var(--solid-bg);
 }
 
 .by-state .state-liquid {
-  border-color: var(--liquid-color);
-  background: var(--liquid-bg);
-}
-
-.by-state .state-liquid p {
-  color: var(--liquid-color);
+  --primary-cell-color: var(--liquid-color);
+  --secondary-cell: var(--liquid-bg);
 }
 
 .by-state .state-gas {
-  border-color: var(--gas-color);
-  background: var(--gas-bg);
+  --primary-cell-color: var(--gas-color);
+  --secondary-cell: var(--gas-bg);
 }
 
-.by-state .state-gas p {
-  color: var(--gas-color);
-}
-
-/*#endregion by state*/
+/* #endregion by state*/
