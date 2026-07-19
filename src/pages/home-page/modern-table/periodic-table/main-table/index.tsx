@@ -1,7 +1,7 @@
 import "./style.css";
 
-import type { ElementData, TableData } from "../../core/data";
-import { ElementCell } from "../element-cell";
+import type { ElementData, TableData } from "../../../../../core/data";
+import { ElementCell } from "../../../../../components/element-cell";
 
 interface MainTableProps {
   data: TableData;
