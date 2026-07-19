@@ -19,7 +19,9 @@
     border-width: 1px;
   }
 
-  p { color: var(--primary-cell-color); }
+  p {
+    color: var(--primary-cell-color);
+  }
 }
 
 .element-info-div {
