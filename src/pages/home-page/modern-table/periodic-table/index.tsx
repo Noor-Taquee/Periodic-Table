@@ -3,8 +3,8 @@ import "./colors.css";
 
 import { useState, useEffect } from "react";
 
-import MainTable from "../../../../components/main-table";
-import SecondTable from "../../../../components/second-table";
+import MainTable from "./main-table";
+import SecondTable from "./second-table";
 import {
   loadElement,
   type TableData,
@@ -37,7 +37,7 @@ export function PeriodicTable({ onSelectElement }: PeriodicTableProps) {
   const data = elements as TableData;
 
   return (
-    <div className="by-block" id="periodic-table">
+    <div className="by-category" id="periodic-table">
       <MainTable data={data} onSelectElement={onSelectElement} />
       <SecondTable data={data} onSelectElement={onSelectElement} />
     </div>
