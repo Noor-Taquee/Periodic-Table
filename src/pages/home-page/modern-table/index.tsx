@@ -11,7 +11,6 @@ interface ModernTableProps {
 }
 
 export function ModernTable({ route }: ModernTableProps) {
-
   const [selectedElement, setSelectedElement] = useState<ElementData | null>(
     null
   );
