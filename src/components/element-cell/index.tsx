@@ -28,7 +28,7 @@ export function ElementCell({ element, onSelectElement }: ElementCellProps) {
 
   return (
     <div
-      className={`element-cell group-${element.group} block-${element.block}`}
+      className={`element-cell group-${element.group} period-${element.period} category-${element.category.toLowerCase().replaceAll(" ", "-")} block-${element.block}`}
       id={element.symbol}
       style={{
         gridColumn: column,
