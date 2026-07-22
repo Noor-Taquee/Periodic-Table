@@ -38,6 +38,7 @@ export function ElementCell({ element, onSelectElement }: ElementCellProps) {
     >
       <div className="element-info-div">
         <p className="atomic-number">{element.atomicNumber}</p>
+        <p className="mass-number">{Number(element.mass).toFixed(1)}</p>
       </div>
       <div className="element-name-div">
         <p className="element-symbol">{element.symbol}</p>
