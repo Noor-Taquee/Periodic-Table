@@ -10,6 +10,6 @@ updates:
       timezone: "Asia/Kolkata"
     commit-message:
       prefix: "build(deps)"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 10
     labels:
       - "dependencies"
