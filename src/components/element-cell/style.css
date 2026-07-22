@@ -43,6 +43,17 @@
   font-family: "Oswald";
 }
 
+.mass-number {
+  width: 100%;
+
+  text-align: right;
+
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1;
+  font-family: "Oswald";
+}
+
 .element-name-div {
   flex-grow: 1;
   width: 100%;
